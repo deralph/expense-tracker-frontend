@@ -1,0 +1,106 @@
+.sidebar {
+  min-width: 250px;
+  background: rgb(122, 59, 247);
+  min-height: 100vh;
+  height: auto;
+  padding: 20px;
+  position: fixed;
+  width: 20vw;
+  left: 0;
+  top: 0;
+  display: block;
+  transition: 1s;
+  overflow: auto;
+}
+.side-logo {
+  padding-bottom: 100px;
+}
+ul {
+  list-style-type: none;
+}
+.sidebar .side-basic {
+  margin-top: 50px;
+}
+.sidebar .side-basic li,
+.out,
+.sidebar h3 {
+  padding: 20px 15px;
+  font-size: 18px;
+  font-weight: 550;
+  color: #ddd;
+  font-family: sans-serif;
+}
+.sidebar .out {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.sidebar .out:hover {
+  color: #bbb;
+  text-decoration: underline;
+}
+.sidebar h3 {
+  text-align: center;
+  padding: 5px !important;
+}
+.side-ul {
+  margin: 5px 0;
+}
+.side-ul li,
+.side-ul p,
+.range-p,
+.sidebar label {
+  color: #aaa;
+  padding: 3px;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+.side-ul li {
+  cursor: pointer;
+}
+.side-ul p,
+.sidebar label {
+  padding: 10px 15px;
+  color: #ddd;
+}
+
+.sidebar input {
+  padding: 5px 0;
+}
+
+@media (min-width: 1800px) {
+  .sidebar {
+    width: 25vw;
+  }
+  .side-ul li,
+  .side-ul p,
+  .range-p,
+  .sidebar label,
+  .sidebar .side-basic li,
+  .out {
+    font-size: 40px;
+    padding: 20px;
+  }
+  .sidebar .side-basic li {
+    margin-top: 50px;
+  }
+  .sidebar h3 {
+    font-size: 50px;
+    margin-top: 50px;
+  }
+}
+@media (max-width: 650px) {
+  .sidebar {
+    position: fixed !important;
+    left: -120% !important;
+    transition: 1s;
+    z-index: 100;
+    height: auto;
+    overflow-y: scroll;
+  }
+  .show {
+    left: 0 !important;
+    transition: 1s;
+  }
+}

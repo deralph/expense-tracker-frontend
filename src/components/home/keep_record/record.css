@@ -1,0 +1,75 @@
+.record {
+  min-height: 300px;
+  margin: 100px 0;
+  position: relative;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.record-cont {
+  max-width: 500px;
+  font-family: serif;
+}
+.record p {
+  font-size: 30px;
+  color: #333;
+  padding: 20px;
+  font-family: sans-serif;
+}
+.record .btn-cont {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 30px;
+}
+.record .btn-cont button {
+  font-size: 18px;
+  border: none;
+  background: #9966ff;
+  color: #fff;
+  padding: 10px;
+  width: 100px;
+  transition: 0.6s;
+  cursor: pointer;
+}
+.record .btn-cont button:hover {
+  background: #7733ff;
+}
+
+/* media queries */
+@media (min-width: 1800px) {
+  .record-cont {
+    max-width: 40vw !important;
+  }
+  .record-cont p {
+    font-size: 50px;
+    margin: 30px 0;
+  }
+  .record-img {
+    transform: scale(1.7);
+  }
+  .record {
+    margin: 200px auto;
+  }
+  .record .btn-cont button {
+    font-size: 50px;
+    padding: 20px 50px;
+    width: auto;
+  }
+}
+@media (max-width: 770px) {
+  .record-cont {
+    flex-basis: 40%;
+  }
+  .record p {
+    font-size: 25px;
+  }
+  .record {
+    flex-direction: column-reverse;
+  }
+  .record-img {
+    width: 300px;
+    height: 300px;
+  }
+}

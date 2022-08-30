@@ -1,0 +1,193 @@
+.exp {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  flex-direction: column;
+  width: 120px;
+}
+.expense {
+  flex-basis: 45%;
+}
+.expense a {
+  border: 1px solid #ddd;
+  padding: 15px;
+  display: flex;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 8px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.expense-box {
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.exp-icon {
+  font-size: 30px;
+  padding: 5px;
+  border-radius: 50%;
+}
+.exp-name {
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.exp-price {
+  color: #0033ff;
+  font-weight: 600;
+}
+.exp-date {
+  color: #888;
+}
+.btns {
+  padding: 10px 40px;
+  font-size: 16px;
+  background: #9933ff;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 20px;
+  transition: all 0.7s;
+}
+.btns:hover {
+  color: #555;
+  border: 2px solid #9933ff;
+  background: #fff;
+}
+.expenses-btn {
+  display: flex;
+  justify-content: center;
+}
+.expenses {
+  position: relative;
+  width: 70vw;
+  margin: 30px auto 30px auto;
+}
+.expenses h3 {
+  text-align: center;
+  font-size: 30px;
+  position: relative;
+  padding: 0 0 10px;
+}
+.exp .naira {
+  width: 30px;
+}
+.single-exp {
+  /* margin: 20px; */
+  border: 5px solid #96f;
+  /* padding: 20px; */
+  font-family: sans-serif;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-content: center;
+  background: #eee;
+}
+.single-exp p {
+  display: flex;
+  font-size: 18px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+.single-span {
+  width: 120px;
+}
+.single-main {
+  /* background: rgba(153, 102, 255, 0.3); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(153, 102, 255, 0.3);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%23b47cec' fill-opacity='0.3'%3E%3Cpolygon fill-rule='evenodd' points='8 4 12 6 8 8 6 12 4 8 0 6 4 4 6 0 8 4'/%3E%3C/g%3E%3C/svg%3E");
+}
+.edit-icon,
+.delete-icon {
+  font-size: 40px;
+}
+.icons-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 20px 10px;
+}
+
+.delete {
+  max-width: 500px;
+  width: 90%;
+  /* height: 300px; */
+  z-index: 100;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.del-btns {
+  margin: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+.del-btns button {
+  padding: 10px 40px;
+  /* background: rgba(250, 4, 4, 0.7); */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-left: 30px;
+}
+@media (min-width: 1800px) {
+  .expenses {
+    margin: 70px auto !important;
+  }
+  .expenses h3 {
+    text-align: center;
+    font-size: 60px;
+    padding: 0 0 10px;
+  }
+  .exp {
+    padding: 20px;
+  }
+  .expense a {
+    margin-top: 50px;
+    flex-basis: 48%;
+  }
+  .expense-box {
+    margin-bottom: 30px;
+    display: flex;
+    width: 100%;
+  }
+  .exp-icon {
+    font-size: 80px;
+    padding: 25px;
+  }
+  .exp-name,
+  .exp-date,
+  .exp-price {
+    font-size: 35px;
+  }
+  .btns {
+    padding: 30px 80px;
+    font-size: 50px;
+    margin-top: 60px;
+  }
+}
+@media (max-width: 1000px) {
+  .expenses {
+    width: 100%;
+    margin: 30px auto !important;
+  }
+}
+@media (max-width: 300px) {
+  .exp {
+    width: 80px;
+  }
+}

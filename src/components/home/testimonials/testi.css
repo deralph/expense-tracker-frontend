@@ -1,0 +1,89 @@
+.test1 {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px auto;
+  width: 95%;
+}
+.testi h3 {
+  font-size: 30px;
+  margin: 50px 0;
+  font-family: sans-serif;
+  text-align: center;
+  position: relative;
+  padding-bottom: 5px;
+}
+.card {
+  display: grid;
+  place-items: center;
+  flex-basis: 30%;
+  height: auto;
+  padding: 20px 10px;
+  border: 1px solid #ddd;
+  transition: 1s;
+  box-shadow: 3px 0 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  font-family: sans-serif;
+}
+.card:hover {
+  box-shadow: 3px 0 30px rgba(0, 0, 0, 0.4);
+  transform: translateY(-20px);
+}
+.card p {
+  font-size: 17px;
+  text-align: justify;
+  padding: 15px;
+  position: relative;
+}
+.card .p {
+  text-transform: capitalize;
+  font-weight: 600;
+}
+.card img {
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid #7733ff;
+  object-fit: contain;
+}
+.icon-left,
+.icon-right {
+  display: block;
+  color: #7733ff;
+}
+.icon-right {
+  margin-left: 97%;
+}
+
+/* media queries */
+
+@media (min-width: 1800px) {
+  .card img {
+    width: 100px;
+  }
+  .icon-left,
+  .icon-right {
+    font-size: 40px;
+    padding: 30px 0;
+  }
+  .icon-right {
+    margin-left: 95%;
+  }
+  .card p {
+    font-size: 35px;
+    margin: 30px 0;
+  }
+  .card .p {
+    font-size: 30px;
+  }
+  .testi h3 {
+    font-size: 60px;
+    margin: 100px 0;
+  }
+}
+@media (max-width: 770px) {
+  .test1 {
+    flex-direction: column;
+  }
+  .card {
+    margin: 20px auto;
+  }
+}

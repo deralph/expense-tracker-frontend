@@ -1,0 +1,23 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+.logo .bag {
+  font-size: 40px;
+}
+.logo span {
+  font-size: 15px;
+  display: block;
+  font-family: cursive;
+}
+
+@media (min-width: 1800px) {
+  .logo .bag {
+    font-size: 80px;
+  }
+  .logo span {
+    font-size: 30px;
+  }
+}

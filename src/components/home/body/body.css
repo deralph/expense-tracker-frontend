@@ -1,0 +1,97 @@
+.Body div {
+  padding: 20vh 0 50px 100px;
+  max-width: 700px;
+  width: 90%;
+  min-width: 300px;
+  font-family: sans-serif;
+}
+.Body article {
+  width: 100vw;
+  background: url(../../../../public/images/20220501164241.jpg);
+  /* background: url(../../../Geulgram/20220501164241.jpg); */
+  background-position: center;
+  background-position: center;
+  background-size: cover;
+  height: auto;
+}
+.Body div h2 {
+  font-size: 6rem;
+  text-transform: capitalize;
+}
+.Body div h2 span {
+  color: #9966ff;
+}
+.Body div p {
+  margin: 20px 0;
+  font-size: 25px;
+}
+.Body div button {
+  border: 2px solid #9966ff;
+  padding: 15px;
+  width: 200px;
+  border-radius: 30px;
+  transition: 0.3s;
+  background: transparent;
+  font-weight: 650;
+  font-size: 20px;
+  cursor: pointer;
+}
+.Body div button:hover {
+  background: #9966ff;
+  color: #fff;
+}
+
+@media (min-width: 1800px) {
+  .Body div button {
+    font-size: 60px;
+    padding: 20px 80px;
+    width: auto;
+    width: 30vh;
+    margin: 50px auto;
+  }
+  .Body article {
+    min-height: auto;
+    height: 80vh;
+    display: grid;
+    place-content: center;
+  }
+  .Body div {
+    max-width: 100vw !important;
+    height: 60vh;
+    width: 60vh;
+  }
+  .body div h2 {
+    font-size: 20rem;
+    line-height: auto !important;
+  }
+  .Body div p {
+    font-size: 50px;
+    margin: 50px 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .Body div {
+    padding: 150px 0 50px 100px;
+    width: 500px;
+    min-width: 300px;
+    font-family: sans-serif;
+  }
+  .Body div h2 {
+    font-size: 70px;
+    line-height: 4rem;
+  }
+}
+@media (max-width: 600px) {
+  .Body div {
+    width: 250px !important;
+    font-family: sans-serif;
+    padding: 150px 0 50px 20px;
+  }
+  .Body div h2 {
+    font-size: 40px;
+  }
+  .Body div p {
+    font-size: 17px;
+  }
+}
