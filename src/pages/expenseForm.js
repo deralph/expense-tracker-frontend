@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import { useGlobal } from "../components/context/Context";
 import ExpenseForm from "../components/expenseform/CategoriesForm";
 import Loader from "../components/loading/Loader";
-const expenseForm = () => {
+const ExpenseForm_ = () => {
   const { loading, user } = useGlobal();
   return (
     <section>
@@ -18,4 +18,4 @@ const expenseForm = () => {
   );
 };
 
-export default expenseForm;
+export default ExpenseForm_;

@@ -4,7 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import axios from "../extras/axios";
 import Loader from "../components/loading/Loader";
 
-const dashboard = () => {
+const Dashboard_ = () => {
   const navigate = useNavigate();
   const [result, setResult] = useState();
   const [user, setuser] = useState();
@@ -47,4 +47,4 @@ const dashboard = () => {
   );
 };
 
-export default dashboard;
+export default Dashboard_;
