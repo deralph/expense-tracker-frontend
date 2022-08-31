@@ -4,7 +4,7 @@ import axios from "../extras/axios";
 import { Navigate, useNavigate } from "react-router-dom";
 import Loader from "../components/loading/Loader";
 
-const Expense = () => {
+const Expense_ = () => {
   const navigate = useNavigate();
   const [result, setResult] = useState();
   // const [loading, setloading] = useState(true);
