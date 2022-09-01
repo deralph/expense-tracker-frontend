@@ -8,7 +8,7 @@ const Context = ({ children }) => {
 
   const [loading, setloading] = useState(true);
   const [user, setuser] = useState();
-  const [problem, setProblem] = useState();
+  const [probs, setProbs] = useState();
 
   const fetcher = useCallback(async () => {
     try {
@@ -21,8 +21,9 @@ const Context = ({ children }) => {
       console.log(error);
       if (error.response.status === 401) setloading(false);
       setloading(false);
+      setProbs(true);
     }
-  }, []);
+  }, [setProbs, setuser, setloading]);
   useEffect(() => {
     fetcher();
   }, [fetcher]);

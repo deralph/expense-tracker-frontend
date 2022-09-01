@@ -19,7 +19,7 @@ const Welcome = () => {
           </Link>
         </div>
       </div>{" "}
-      {/* <Logout /> */}
+      <Logout />
     </section>
   );
 };

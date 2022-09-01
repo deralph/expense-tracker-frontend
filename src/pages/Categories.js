@@ -3,9 +3,13 @@ import { Navigate } from "react-router-dom";
 import AllCategories from "../components/categories/Categories";
 import { useGlobal } from "../components/context/Context";
 import Loader from "../components/loading/Loader";
+import Problem from "../extras/Problem";
 
 const Categories = () => {
-  const { loading, user } = useGlobal();
+  const { loading, user, probs } = useGlobal();
+  if (probs) {
+    return <Problem />;
+  }
   return (
     <section>
       {loading ? (
