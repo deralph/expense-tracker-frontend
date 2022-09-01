@@ -5,7 +5,7 @@ import axios from "../../extras/axios";
 const AppProvider = React.createContext();
 
 const Context = ({ children }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [loading, setloading] = useState(true);
   const [user, setuser] = useState();
   const [probs, setProbs] = useState();
@@ -20,7 +20,7 @@ const Context = ({ children }) => {
     } catch (error) {
       console.log(error);
       if (error.response.status === 401) {
-        navigate("/signin");
+        // navigate("/signin");
         setloading(false);
       }
       setloading(false);
