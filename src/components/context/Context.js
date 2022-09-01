@@ -28,7 +28,7 @@ const Context = ({ children }) => {
     fetcher();
   }, [fetcher]);
 
-  const [signIn, setSignIn] = useState(false);
+  const [signIn, setSignIn] = useState(true);
   const [sidebar, setSidebar] = useState(false);
 
   return (
