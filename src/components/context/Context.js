@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "../../extras/axios";
 
 const AppProvider = React.createContext();
 
 const Context = ({ children }) => {
-  // const [currentuser, setcurrentuser] = useState("");
-
+  const navigate = useNavigate();
   const [loading, setloading] = useState(true);
   const [user, setuser] = useState();
   const [probs, setProbs] = useState();
@@ -19,7 +19,10 @@ const Context = ({ children }) => {
       // console.log("in");
     } catch (error) {
       console.log(error);
-      if (error.response.status === 401) setloading(false);
+      if (error.response.status === 401) {
+        navigate("/signin");
+        setloading(false);
+      }
       setloading(false);
       setProbs(true);
     }

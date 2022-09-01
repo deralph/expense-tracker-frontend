@@ -8,7 +8,6 @@
 .Body article {
   width: 100vw;
   background: url(../../../../public/images/20220501164241.jpg);
-  /* background: url(../../../Geulgram/20220501164241.jpg); */
   background-position: center;
   background-position: center;
   background-size: cover;
@@ -26,19 +25,20 @@
   font-size: 25px;
 }
 .Body div button {
+  background: #9966ff;
+  color: #fff;
   border: 2px solid #9966ff;
   padding: 15px;
   width: 200px;
   border-radius: 30px;
   transition: 0.3s;
-  background: transparent;
   font-weight: 650;
   font-size: 20px;
   cursor: pointer;
 }
 .Body div button:hover {
-  background: #9966ff;
-  color: #fff;
+  background: transparent;
+  color: #000;
 }
 
 @media (min-width: 1800px) {

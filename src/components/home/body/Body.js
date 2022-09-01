@@ -15,7 +15,7 @@ const Body = () => {
             how your money is being spent
           </p>
           <button>
-            <Link to="/signin">get started</Link>
+            <Link to="/signin">Get Started</Link>
           </button>
         </div>
       </article>
