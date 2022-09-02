@@ -80,12 +80,6 @@ const Login = () => {
       </form>
       <footer>
         not yet a user? <span onClick={() => setSignIn(false)}>register </span>
-        <Link
-          to="password-reset"
-          style={{ display: "block", textAlign: "center" }}
-        >
-          forgot password?
-        </Link>
       </footer>
     </article>
   );

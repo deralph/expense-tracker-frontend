@@ -7,13 +7,14 @@ import { useGlobal } from "../context/Context";
 const Logout = () => {
   const navigate = useNavigate();
   const [problem, setProblem] = useState();
-  const { setloading } = useGlobal();
+  const { setloading, setuser } = useGlobal();
 
   const logout = async () => {
     try {
       const { data } = await axios.get("auth/logout");
       console.log(data);
-      setloading(false);
+      // setloading(false);
+      setuser("");
       navigate("/signin");
     } catch (error) {
       console.log(error);
