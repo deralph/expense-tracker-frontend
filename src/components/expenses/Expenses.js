@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Expense from "./Expense";
 import "./expenses.css";
-import { useGlobal } from "../../components/context/Context";
 
 const Expenses = ({ data, type, seeall }) => {
   return (

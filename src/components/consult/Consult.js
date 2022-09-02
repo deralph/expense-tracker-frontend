@@ -3,7 +3,6 @@ import "./consult.css";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
 import Back from "../../extras/Back";
-// import Back from "../../extras/Back";
 
 const Consult = ({ back }) => {
   const [name, setName] = useState("");

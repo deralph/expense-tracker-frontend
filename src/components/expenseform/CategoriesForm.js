@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useGlobal } from "../context/Context";
 import { useNavigate } from "react-router-dom";
 import Back from "../../extras/Back";
 import axios from "../../extras/axios";

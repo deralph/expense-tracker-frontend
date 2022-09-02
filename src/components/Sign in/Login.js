@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Signin.css";
 import { useGlobal } from "../context/Context";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "../../extras/axios";
 
 const Login = () => {

@@ -1,7 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-// import { useIcons } from "../../extras/useicon";
-// import useFetch from "../../extras/useFetch";
 import { MdOutlineModeEditOutline, MdDeleteForever } from "react-icons/md";
 import axios from "../../extras/axios";
 import "./expenses.css";
@@ -14,7 +12,6 @@ const SingleExpense = () => {
   const navigate = useNavigate();
   const [del, setDelete] = useState(false);
   const [result, setResult] = useState([]);
-  const [loading, setloading] = useState(true);
   const [problem, setProblem] = useState();
 
   const fetcher = useCallback(async () => {
@@ -26,29 +23,18 @@ const SingleExpense = () => {
     } catch (error) {
       console.log(error);
       if (error.response.status === 401) navigate("/signin");
-      setloading(false);
       setProblem(true);
     }
   }, [navigate, id]);
   useEffect(() => {
     console.log("finally in useEffect");
-    setloading(true);
     fetcher();
-    setloading(false);
   }, [fetcher]);
 
   console.log(result);
   const { _id, category, price, productName, productNo, date, description } =
     result;
   console.log(_id, category, price, productName, productNo, date, description);
-  // if (category) {
-  // const icon = useIcons().find((icon) => icon.title === category);
-  // const { Icon: Red, color } = icon;
-  //   setDelete(Red);
-  //   setColor(color);
-  // }
-  // console.log(icon);
-  // return <h1>ok</h1>;
 
   if (problem) {
     return (

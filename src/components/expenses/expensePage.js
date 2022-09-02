@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useGlobal } from "../context/Context";
 import Sidebar from "../dashboard/Sidebar/Sidebar";
 import Expenses from "./Expenses";
@@ -6,7 +6,6 @@ import { sets, getMonth } from "../../extras/functions";
 import "../categories/categories.css";
 import Back from "../../extras/Back";
 import { RiEqualizerLine } from "react-icons/ri";
-// import useFetch from "../../extras/useFetch";
 import "../dashboard/dashboardbody/dashboardBody.css";
 
 import { reduceFunction } from "../../extras/functions";

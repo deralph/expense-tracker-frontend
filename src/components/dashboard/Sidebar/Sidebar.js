@@ -17,7 +17,6 @@ const Sidebar = ({
   handleMonth,
 }) => {
   const { sidebar } = useGlobal();
-  const [msg, setmsg] = useState();
   const subject =
     "Hi \n I am ________ \n I am writting to you in subject to the website https://expense-tracked.netlify.app \n I would love to seek financial advice towards ______, \n Thanks";
   return (

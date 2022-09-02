@@ -9,7 +9,6 @@ const Edit = () => {
   console.log(id);
   const navigate = useNavigate();
   const [result, setResult] = useState();
-  const [loading, setloading] = useState(true);
   const [problem, setProblem] = useState();
 
   const fetcher = useCallback(async () => {
@@ -21,15 +20,12 @@ const Edit = () => {
     } catch (error) {
       console.log(error);
       if (error.response.status === 401) navigate("/signin");
-      setloading(false);
       setProblem(true);
     }
   }, [navigate, id]);
   useEffect(() => {
     console.log("finally in useEffect");
-    setloading(true);
     fetcher();
-    setloading(false);
   }, [fetcher]);
 
   if (problem) {

@@ -5,7 +5,6 @@ import "./expenses.css";
 
 const Expense = ({ _id, productName, price, category, productNo, date }) => {
   const Date = date.slice(0, 10);
-  // const Date = date;
   return (
     <div className="expense" key={_id}>
       <Link to={`/expense/${_id}`}>

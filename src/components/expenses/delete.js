@@ -12,10 +12,7 @@ const Delete = ({ id, setDelete }) => {
     }
   };
   return (
-    <section
-    // className="single-main"
-    // style={{ background: "rgba(225,225,225,0,4)" }}
-    >
+    <section>
       <div className="delete">
         <p>Are you sure you want to delete this expense?</p>
         <div className="del-btns">
