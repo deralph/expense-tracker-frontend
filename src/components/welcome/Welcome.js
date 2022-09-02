@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Logout from "../dashboard/Logout";
 import "./welcome.css";
 const Welcome = () => {
-  // const navigate = useNavigate();
   return (
     <section className="welcome">
       <div className="cont">
@@ -19,7 +18,7 @@ const Welcome = () => {
           </Link>
         </div>
       </div>{" "}
-      {/* <Logout /> */}
+      <Logout />{" "}
     </section>
   );
 };
