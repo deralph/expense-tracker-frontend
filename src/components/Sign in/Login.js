@@ -49,9 +49,6 @@ const Login = () => {
         setAlert(true);
         setMsg("failed to login");
       }
-      setTimeout(() => {
-        // setMsg("");
-      }, 1000);
       setloading(false);
     }
   };
