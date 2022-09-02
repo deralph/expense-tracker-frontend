@@ -36,7 +36,7 @@ const Logout = () => {
     );
   }
   return (
-    <p className="out" onClick={logout}>
+    <p className="out" onClick={logout()}>
       Log Out
       <MdLogout style={{ marginLeft: "10px" }} />
     </p>
