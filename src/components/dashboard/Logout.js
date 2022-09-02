@@ -16,7 +16,7 @@ const Logout = () => {
       setuser(null);
       navigate("/signin");
     } catch (error) {
-      console.log(error);
+      //   console.log(error);
       setProblem(true);
     }
   };
