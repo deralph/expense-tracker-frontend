@@ -7,7 +7,7 @@ import { useGlobal } from "../context/Context";
 const Logout = () => {
   const navigate = useNavigate();
   const [problem, setProblem] = useState();
-  const { setuser } = useGlobal();
+  // const { setuser } = useGlobal();
 
   const logout = async () => {
     try {
