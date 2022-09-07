@@ -13,7 +13,7 @@ const Logout = () => {
     try {
       const { data } = await axios.get("auth/logout");
       console.log(data);
-      setuser("");
+      // setuser("");
       navigate("/signin");
     } catch (error) {
       console.log(error);
