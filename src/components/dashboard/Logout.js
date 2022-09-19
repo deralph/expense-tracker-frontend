@@ -10,6 +10,7 @@ const Logout = () => {
   // const { setuser } = useGlobal();
 
   const logout = async () => {
+    e.preventDefault();
     try {
       const { data } = await axios.get("auth/logout");
       console.log(data);
