@@ -17,7 +17,7 @@ const About = () => {
             your actual day to day expenses and payments
           </p>
         </div>
-        <img src="/images/Metrics-pana.svg" className="about-img" />
+        <img src="/images/Metrics-pana.svg" className="about-img" alt="abouts"/>
       </article>
     </section>
   );

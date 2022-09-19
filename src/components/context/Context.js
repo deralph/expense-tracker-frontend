@@ -40,6 +40,7 @@ const Context = ({ children }) => {
         setSidebar,
         loading,
         setloading,
+        setuser,
         user,
       }}
     >

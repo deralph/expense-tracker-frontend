@@ -7,7 +7,6 @@ import Loader from "../components/loading/Loader";
 const Expense_ = () => {
   const navigate = useNavigate();
   const [result, setResult] = useState();
-  // const [loading, setloading] = useState(true);
   const [problem, setProblem] = useState();
 
   const fetcher = useCallback(async () => {
@@ -18,15 +17,12 @@ const Expense_ = () => {
     } catch (error) {
       console.log(error);
       if (error.response.status === 401) navigate("/signin");
-      // setloading(false);
       setProblem(true);
     }
   }, [navigate]);
   useEffect(() => {
     console.log("in useEffect");
-    // setloading(true);
     fetcher();
-    // setloading(false);
   }, [fetcher]);
   if (problem) {
     return (
