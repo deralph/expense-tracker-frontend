@@ -1,3 +1,4 @@
+import axios from "./axios";
 export const Category_colors = {
   Clothes: "#993377",
   Grocery: "skyblue",
@@ -55,7 +56,7 @@ export const reduceFunction = (group) => {
 };
 
 export const logout = async (navigate) => {
-  e.preventDefault();
+  // e.preventDefault();
   try {
     const { data } = await axios.get("auth/logout");
     console.log(data);
