@@ -45,10 +45,7 @@ const Register = () => {
         password: form.password,
       };
       try {
-        const { data } = await axios.post(
-          "http://localhost:5000/api/v1/auth/register",
-          userDetails
-        );
+        const { data } = await axios.post("auth/register", userDetails);
 
         console.log(data);
         setMsg("submitted sucessfully");
