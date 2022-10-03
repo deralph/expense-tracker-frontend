@@ -96,7 +96,11 @@ const Sidebar = ({
             onChange={(e) => setPro(e.target.value)}
             style={{ width: "100%" }}
           />
-          <p className="range-p">{pro}</p> <Logout />
+          <p className="range-p">{pro}</p>
+          <p className="out" onClick={() => logout(navigate)}>
+            Log Out
+            <MdLogout style={{ marginLeft: "10px" }} />
+          </p>
         </>
       )}
     </aside>
