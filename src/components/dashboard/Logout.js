@@ -9,7 +9,7 @@ const Logout = () => {
   const [problem, setProblem] = useState();
   // const { setuser } = useGlobal();
 
-  const logout = async () => {
+  const  = async () => {
     e.preventDefault();
     try {
       const { data } = await axios.get("auth/logout");

@@ -1,7 +1,12 @@
+import { MdLogout } from "react-icons/md";
 import { Link } from "react-router-dom";
-import Logout from "../dashboard/Logout";
+// import Logout from "../dashboard/Logout";
+import { logout } from "../../extras/functions";
 import "./welcome.css";
+import { useNavigate } from "react-router-dom";
 const Welcome = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="welcome">
       <div className="cont">
@@ -18,7 +23,10 @@ const Welcome = () => {
           </Link>
         </div>
       </div>{" "}
-      <Logout />{" "}
+      <p className="out" onClick={() => logout(navigate)}>
+        Log Out
+        <MdLogout style={{ marginLeft: "10px" }} />
+      </p>
     </section>
   );
 };
