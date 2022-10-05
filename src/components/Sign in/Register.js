@@ -4,7 +4,7 @@ import { useGlobal } from "../context/Context";
 import axios from "../../extras/axios";
 
 const Register = () => {
-  const { setSignIn } = useGlobal();
+  const { setSignIn, setuser } = useGlobal();
   const navigate = useNavigate();
   const [form, setForm] = useState({
     fullname: "",

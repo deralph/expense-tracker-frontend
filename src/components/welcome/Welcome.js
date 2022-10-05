@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import { logout } from "../../extras/functions";
 import "./welcome.css";
 import { useNavigate } from "react-router-dom";
+import { useGlobal } from "../context/Context";
 const Welcome = () => {
   const navigate = useNavigate();
+  const { setuser } = useGlobal();
 
   return (
     <section className="welcome">
