@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "../../extras/axios";
 
 const Login = () => {
-  const { setSignIn } = useGlobal();
+  const { setSignIn, setuser } = useGlobal();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
@@ -41,6 +41,7 @@ const Login = () => {
         setPass("");
         setEmail("");
         setPass("");
+        setuser(data.username);
         navigate("/dashboard");
       } catch (error) {
         console.log(error);

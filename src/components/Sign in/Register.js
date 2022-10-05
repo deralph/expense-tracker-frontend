@@ -49,6 +49,8 @@ const Register = () => {
 
         console.log(data);
         setMsg("submitted sucessfully");
+        setuser(data.username);
+
         navigate("/welcome");
       } catch (error) {
         console.log(error);
