@@ -18,7 +18,7 @@ const Sidebar = ({
   max,
   handleMonth,
 }) => {
-  const { sidebar } = useGlobal();
+  const { sidebar, setuser } = useGlobal();
   const navigate = useNavigate();
 
   const subject =
@@ -47,7 +47,7 @@ const Sidebar = ({
               <li>Seek Financial Advice</li>
             </a>
           </ul>
-          <p className="out" onClick={() => logout(navigate)}>
+          <p className="out" onClick={() => logout(navigate, setuser)}>
             Log Out
             <MdLogout style={{ marginLeft: "10px" }} />
           </p>
@@ -97,7 +97,7 @@ const Sidebar = ({
             style={{ width: "100%" }}
           />
           <p className="range-p">{pro}</p>
-          <p className="out" onClick={() => logout(navigate)}>
+          <p className="out" onClick={() => logout(navigate, setuser)}>
             Log Out
             <MdLogout style={{ marginLeft: "10px" }} />
           </p>

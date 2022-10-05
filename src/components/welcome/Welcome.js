@@ -23,7 +23,7 @@ const Welcome = () => {
           </Link>
         </div>
       </div>{" "}
-      <p className="out" onClick={() => logout(navigate)}>
+      <p className="out" onClick={() => logout(navigate, setuser)}>
         Log Out
         <MdLogout style={{ marginLeft: "10px" }} />
       </p>
