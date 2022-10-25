@@ -15,9 +15,9 @@ const Dashboard_ = () => {
       const { data } = await axios.get("expenses");
       setResult(data.expenses);
       setuser(data.user);
-      console.log("in");
+      // console.log("in");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       if (error.response.status === 401) navigate("/signin");
       setProblem(true);
     }

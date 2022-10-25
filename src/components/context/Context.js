@@ -14,9 +14,9 @@ const Context = ({ children }) => {
       setloading(true);
       setuser(data.user);
       setloading(false);
-      console.log("in");
+      // console.log("in");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       if (error.response.status === 401) {
         setloading(false);
       }

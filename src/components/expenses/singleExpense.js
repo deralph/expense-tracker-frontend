@@ -16,25 +16,25 @@ const SingleExpense = () => {
 
   const fetcher = useCallback(async () => {
     try {
-      console.log("finally in fetcher");
+      // console.log("finally in fetcher");
       const { data } = await axios.get(`expenses/${id}`);
       setResult(data.expense);
-      console.log("in");
+      // console.log("in");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       if (error.response.status === 401) navigate("/signin");
       setProblem(true);
     }
   }, [navigate, id]);
   useEffect(() => {
-    console.log("finally in useEffect");
+    // console.log("finally in useEffect");
     fetcher();
   }, [fetcher]);
 
-  console.log(result);
+  // console.log(result);
   const { _id, category, price, productName, productNo, date, description } =
     result;
-  console.log(_id, category, price, productName, productNo, date, description);
+  // console.log(_id, category, price, productName, productNo, date, description);
 
   if (problem) {
     return (

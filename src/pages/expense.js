@@ -13,15 +13,15 @@ const Expense_ = () => {
     try {
       const { data } = await axios.get("expenses");
       setResult(data.expenses);
-      console.log("in");
+      // console.log("in");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       if (error.response.status === 401) navigate("/signin");
       setProblem(true);
     }
   }, [navigate]);
   useEffect(() => {
-    console.log("in useEffect");
+    // console.log("in useEffect");
     fetcher();
   }, [fetcher]);
   if (problem) {

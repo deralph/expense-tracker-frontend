@@ -13,11 +13,11 @@ const Logout = () => {
     e.preventDefault();
     try {
       const { data } = await axios.get("auth/logout");
-      console.log(data);
+      // console.log(data);
       // setuser("");
       navigate("/signin");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setProblem(true);
     }
   };

@@ -6,25 +6,25 @@ import axios from "../extras/axios";
 
 const Edit = () => {
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const navigate = useNavigate();
   const [result, setResult] = useState();
   const [problem, setProblem] = useState();
 
   const fetcher = useCallback(async () => {
     try {
-      console.log("finally in fetcher");
+      // console.log("finally in fetcher");
       const { data } = await axios.get(`expenses/${id}`);
       setResult(data.expense);
-      console.log("in");
+      // console.log("in");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       if (error.response.status === 401) navigate("/signin");
       setProblem(true);
     }
   }, [navigate, id]);
   useEffect(() => {
-    console.log("finally in useEffect");
+    // console.log("finally in useEffect");
     fetcher();
   }, [fetcher]);
 
@@ -35,7 +35,7 @@ const Edit = () => {
       </h1>
     );
   }
-  console.log(result);
+  // console.log(result);
   return <>{!result ? <Loader /> : <ExpenseForm {...result} />};</>;
 };
 export default Edit;

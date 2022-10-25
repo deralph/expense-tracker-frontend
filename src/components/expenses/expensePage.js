@@ -44,7 +44,7 @@ const AllCategories = ({ result }) => {
         const num = res.date.split("-")[1];
         return num === no;
       });
-      console.log(data);
+      // console.log(data);
       setDatas(data);
     }
   };

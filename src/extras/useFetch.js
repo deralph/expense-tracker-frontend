@@ -13,7 +13,7 @@ const useFetch = (url) => {
       const { data } = await axios.get(url);
       setResult(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       if (error.response.status === 401) navigate("/signin");
 
       setProblem(true);

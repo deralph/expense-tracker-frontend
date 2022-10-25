@@ -85,12 +85,12 @@ const ExpenseForm = ({
         };
         setLoading(true);
         const { data } = await axios.post("expenses", expense);
-        console.log(data);
+        // console.log(data);
         setShowAlert(true);
         setAlert(false);
         setMsg("submitted sucessfully");
 
-        console.log("added");
+        // console.log("added");
         Navigate("/dashboard");
         setForm({
           productName: "",
@@ -102,27 +102,28 @@ const ExpenseForm = ({
         setLoading(false);
       } catch (error) {
         setAlert(true);
-        setMsg("unable to submit expenses");
-        console.log(error);
+        setMsg("unable to submit expenses, Try again later");
+        // console.log(error);
         setLoading(false);
       }
     }
-    console.log(msg);
+    // console.log(msg);
   };
 
-  const handleEdit = async () => {
+  const handleEdit = async (e) => {
+    e.preventDefault();
     try {
       setLoading(true);
       axios.patch(`expenses/${_id}`, form);
-      console.log("patched");
+      // console.log("patched");
       setAlert(false);
       setMsg("updated sucessfully");
       setLoading(false);
       Navigate("/dashboard");
     } catch (error) {
       setAlert(true);
-      setMsg("unable to update expense");
-      console.log(error);
+      setMsg("unable to update expense, Try again later");
+      // console.log(error);
       setLoading(false);
     }
   };
@@ -215,7 +216,6 @@ const ExpenseForm = ({
           <img src="/images/naira.png" alt="naira" className="naira" />
         </p>
       </article>
-      <p>{form.category}</p>
     </section>
   );
 };

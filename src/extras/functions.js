@@ -59,7 +59,7 @@ export const logout = async (navigate, setuser) => {
   // e.preventDefault();
   try {
     const { data } = await axios.get("auth/logout");
-    console.log(data);
+    // console.log(data);
     setuser("");
     navigate("/signin");
   } catch (error) {

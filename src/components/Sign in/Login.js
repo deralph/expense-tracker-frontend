@@ -32,7 +32,7 @@ const Login = () => {
         };
 
         const { data } = await axios.post("auth/login", userDetails);
-        console.log(data);
+        // console.log(data);
         setloading(false);
         setAlert(false);
 
@@ -44,10 +44,10 @@ const Login = () => {
         setuser(data.username);
         navigate("/dashboard");
       } catch (error) {
-        console.log(error);
-        console.log("unable to submit user");
+        // console.log(error);
+        // console.log("unable to submit user");
         setAlert(true);
-        setMsg("failed to login");
+        setMsg("failed to login. Try again later");
       }
       setloading(false);
     }

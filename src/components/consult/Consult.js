@@ -30,7 +30,7 @@ const Consult = ({ back }) => {
         )
         .then(
           (result) => {
-            console.log(result.text);
+            // console.log(result.text);
             setMessage("Sent Sucessfully");
             setloading(true);
             setEmail("");
@@ -41,8 +41,8 @@ const Consult = ({ back }) => {
             navigate("/dashboard");
           },
           (error) => {
-            console.log(error.text);
-            setMessage("Failed to send");
+            // console.log(error.text);
+            setMessage("Failed to send. Try again later");
           }
         );
     }

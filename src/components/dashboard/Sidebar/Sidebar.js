@@ -75,7 +75,7 @@ const Sidebar = ({
           <ul className="side-ul">
             <p>By month</p>
             {month.map((option, index) => {
-              console.log(option);
+              // console.log(option);
               const month = option.month || option;
               const no = option.monthInFigure || 0;
               return (

@@ -10,7 +10,7 @@ const SignIn = () => {
   if (probs) {
     return <Problem />;
   }
-  console.log(loading, user);
+  // console.log(loading, user);
   return (
     <section>
       {loading ? (

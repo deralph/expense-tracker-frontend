@@ -47,16 +47,16 @@ const Register = () => {
       try {
         const { data } = await axios.post("auth/register", userDetails);
 
-        console.log(data);
+        // console.log(data);
         setMsg("submitted sucessfully");
         setuser(data.username);
 
         navigate("/welcome");
       } catch (error) {
-        console.log(error);
-        console.log("unable to submit user");
+        // console.log(error);
+        // console.log("unable to submit user");
         setAlert(true);
-        setMsg("unable to create user");
+        setMsg("unable to create user. Try again later");
       }
       setloading(false);
       setForm({ fullname: "", email: "", password: "", confirmPass: "" });

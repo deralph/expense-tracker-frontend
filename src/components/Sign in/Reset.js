@@ -30,7 +30,7 @@ const Reset = () => {
         await resetPassword(email);
         setMsg("check your mail for further instruction");
       } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         setMsg("failed to Reset");
       }
       setloading(false);

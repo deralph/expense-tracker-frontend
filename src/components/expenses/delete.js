@@ -5,10 +5,10 @@ const Delete = ({ id, setDelete }) => {
   const deleteExpense = async () => {
     try {
       await axios.delete(`expenses/${id}`);
-      console.log(`expense ${id} deleted`);
+      // console.log(`expense ${id} deleted`);
       setDelete(false);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
   return (
