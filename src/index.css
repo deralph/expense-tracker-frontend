@@ -6,6 +6,9 @@
 body {
   overflow-x: hidden;
 }
+textarea {
+  resize: none;
+}
 a {
   text-decoration: none;
 }
