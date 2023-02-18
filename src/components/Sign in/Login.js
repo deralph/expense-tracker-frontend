@@ -44,7 +44,7 @@ const Login = () => {
         setuser(data.username);
         navigate("/dashboard");
       } catch (error) {
-        // console.log(error);
+        console.log(error);
         // console.log("unable to submit user");
         setAlert(true);
         setMsg("failed to login. Try again later");
