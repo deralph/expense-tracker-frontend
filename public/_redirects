@@ -1,10 +1,10 @@
 /*  /index.html 200
 
-/api/*  https://expense-tracker-backend-sigma.vercel.app/:splat  200
+/api/*  https://expense-tracker-backend-8685.onrender.com/:splat  200
 
 [[redirects]]
   from = "/search"
-  to = "https://expense-tracker-backend-sigma.vercel.app"
+  to = "https://expense-tracker-backend-8685.onrender.com"
   status = 200
   force = true
   headers = {X-From = "Netlify"}

@@ -12,7 +12,7 @@ const ExpenseForm = ({
   date,
   description,
 }) => {
-  console.log(_id, category, price, productName, productNo, date, description);
+  // console.log(_id, category, price, productName, productNo, date, description);
   const timing = new Date().toLocaleDateString("en-us", {
     year: "numeric",
     weekday: "long",
