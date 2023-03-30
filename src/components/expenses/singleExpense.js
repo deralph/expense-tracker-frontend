@@ -47,12 +47,12 @@ const SingleExpense = () => {
   return (
     <div className="single-main">
       <Back />
-      <div>
+      <div className="main">
         {!result ? (
           <Loader />
         ) : (
           <>
-            <section className="single-exp">
+            <section className="single-exp" >
               <div
                 style={{
                   display: "flex",
@@ -65,29 +65,29 @@ const SingleExpense = () => {
 
               <p>
                 <span className="single-span">Name : </span>{" "}
-                <span>{productName}</span>
+                <span>{productName || 'loading'}</span>
               </p>
               <p>
                 <span className="single-span">Price : </span>{" "}
-                <span>{price}</span>
+                <span>{price || 'loading'}</span>
               </p>
               <p>
                 <span className="single-span">Numbar : </span>{" "}
-                <span>{productNo}</span>
+                <span>{productNo || 'loading'}</span>
               </p>
               <p>
                 <span className="single-span">Price : </span>{" "}
-                <span>{price * productNo}</span>
+                <span>{price * productNo || 'loading'}</span>
               </p>
               {description && (
                 <p>
                   <span className="single-span">Description : </span>{" "}
-                  <span>{description}</span>
+                  <span>{description || 'loading'}</span>
                 </p>
               )}
               <p>
                 <span className="single-span">Date : </span>{" "}
-                <span>{date && date.slice(0, 10)}</span>
+                <span>{date && date.slice(0, 10) || 'loading'}</span>
               </p>
               <p>
                 {/* <span className="single-span">Month : </span> <span>{month}</span> */}

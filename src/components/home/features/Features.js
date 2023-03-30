@@ -26,7 +26,7 @@ const Features = () => {
     },
   ];
   return (
-    <section className="features">
+    <section className="features" id='features'>
       <h3>Features</h3>
       <div className="feature-box">
         {feat.map((feats) => (

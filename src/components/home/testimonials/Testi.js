@@ -27,7 +27,7 @@ const userData = [
 ];
 const Testi = () => {
   return (
-    <section className="testi">
+    <section className="testi" id="testimonial">
       <h3>Testimonial</h3>
       <article className="test1">
         {userData.map((user) => {

@@ -11,6 +11,8 @@ import Incategories from "../../categories/Incategories";
 import { Link } from "react-router-dom";
 import { RiEqualizerLine } from "react-icons/ri";
 import { reduceFunction } from "../../../extras/functions";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaTimes } from "react-icons/fa";
 
 const DashboardBody = ({ result, user }) => {
   const { sidebar, setSidebar } = useGlobal();
@@ -79,9 +81,8 @@ const DashboardBody = ({ result, user }) => {
       i === Cummulative_percent_Array.length - 1
         ? (f = `${Cummulative_percent_Array[i].tohundred}%`)
         : (f = `${Cummulative_percent_Array[i].tohundred}%,`);
-      const returned_Gradient_color = `${
-        Category_colors[Cummulative_percent_Array[i].type]
-      } ${j}% ${f}`;
+      const returned_Gradient_color = `${Category_colors[Cummulative_percent_Array[i].type]
+        } ${j}% ${f}`;
       Real_Gradient_color.push(returned_Gradient_color);
     }
   };
@@ -104,10 +105,19 @@ const DashboardBody = ({ result, user }) => {
     <section className={sidebar ? "dashboard-body overflow" : "dashboard-body"}>
       <>
         {" "}
-        <RiEqualizerLine
-          className="dash-top1"
-          onClick={() => setSidebar(!sidebar)}
-        />
+        {sidebar ?
+          <FaTimes
+            className="dash-top1"
+            style={{ color: '#fff' }}
+            onClick={() => setSidebar(!sidebar)}
+          />
+          :
+          <GiHamburgerMenu
+            className="dash-top1"
+
+            onClick={() => setSidebar(!sidebar)}
+          />
+        }
         <p className="user">welcome {user}</p>
         <Quote
           quote={quotes[presentQuote].quote}

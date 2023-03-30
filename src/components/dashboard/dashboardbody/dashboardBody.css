@@ -221,9 +221,9 @@
     transition: 1s;
     font-size: 30px;
     left: 20px;
-    background-color: #93f;
+    /* background-color: #93f; */
     padding: 6px;
-    color: #fff;
+    /* color: #fff; */
   }
   .dashboard-body {
     padding: 0;
