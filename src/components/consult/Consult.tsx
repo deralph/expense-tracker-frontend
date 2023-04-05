@@ -4,14 +4,14 @@ import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
 import Back from "../../extras/Back";
 
-const Consult = ({ back }) => {
+const Consult:React.FC<{back?:boolean}> = ({ back }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setloading] = useState(false);
   const navigate = useNavigate();
-  const form = useRef();
-  const sendEmail = (e) => {
+  const form = useRef<null | HTMLFormElement>(null);
+  const sendEmail = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const regex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -25,7 +25,7 @@ const Consult = ({ back }) => {
         .sendForm(
           "service_ebwtn3v",
           "template_usrzu3v",
-          form.current,
+          form.current!,
           "AaNuDTP5U8DXfAUhh"
         )
         .then(
@@ -64,7 +64,7 @@ const Consult = ({ back }) => {
           <form
             action=""
             className="form"
-            onSubmit={sendEmail}
+            onSubmit={(e)=>sendEmail(e)}
             name="form"
             ref={form}
           >

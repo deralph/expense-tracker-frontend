@@ -1,8 +1,17 @@
 import React from "react";
 import "./categories.css";
 import { Link } from "react-router-dom";
+import { IconType } from "react-icons/lib";
 
-const Incategories = ({ title, Icon, color, percent, percenta }) => {
+interface props{
+  title:string
+   Icon:IconType 
+    color:string 
+     percent?: string 
+      percenta?:string
+     }
+
+const Incategories= ({ title, Icon, color, percent, percenta }:props) => {
   const Red = Icon;
   return (
     <div className="cate">

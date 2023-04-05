@@ -1,7 +1,13 @@
 import React from "react";
 import "./dashboardBody.css";
 
-const Dash = ({ color, name, percentage }) => {
+interface props {
+  color: object|any;
+  name: string;
+  percentage: string;
+}
+
+const Dash = ({ color, name, percentage }: props) => {
   return (
     <div className="dash">
       <div className="line-box" style={{ background: color[name] }} />

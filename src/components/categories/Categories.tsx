@@ -3,7 +3,7 @@ import Incategories from "./Incategories";
 import useIcons from "../../extras/useicon";
 import Back from "../../extras/Back";
 
-const Categories = () => {
+const Categories:React.FC = () => {
   const all = useIcons();
   return (
     <>
@@ -11,7 +11,7 @@ const Categories = () => {
       <h3 className="category-h3">Categories</h3>
       <section className="category">
         {all.map((category) => {
-          return <Incategories {...category} key={category.title} />;
+          return <Incategories  title={category.title} Icon={category.Icon} color={category.color} key={category.title} />;
         })}
       </section>
     </>

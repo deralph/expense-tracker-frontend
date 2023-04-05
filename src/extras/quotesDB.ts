@@ -1,4 +1,9 @@
-const quotesDB = [
+interface quote{
+  quote:string
+  author:string
+}
+
+const quotesDB:quote[] = [
   {
     quote:
       "Too many people spend money they earned..to buy things they don't want..to impress people that they don't like.",

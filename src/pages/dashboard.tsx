@@ -4,11 +4,22 @@ import { Navigate, useNavigate } from "react-router-dom";
 import axios from "../extras/axios";
 import Loader from "../components/loading/Loader";
 
+export interface res{
+  _id:string
+productName:string
+category:string
+date:string
+description:string
+price:string
+productNo:string
+createdBy:string
+}
+
 const Dashboard_ = () => {
   const navigate = useNavigate();
-  const [result, setResult] = useState();
+  const [result, setResult] = useState<res[]>([]);
   const [user, setuser] = useState();
-  const [problem, setProblem] = useState();
+  const [problem, setProblem] = useState(false);
 
   const fetcher = useCallback(async () => {
     try {
@@ -16,7 +27,7 @@ const Dashboard_ = () => {
       setResult(data.expenses);
       setuser(data.user);
       // console.log("in");
-    } catch (error) {
+    } catch (error:any) {
       // console.log(error);
       if (error.response.status === 401) navigate("/signin");
       setProblem(true);

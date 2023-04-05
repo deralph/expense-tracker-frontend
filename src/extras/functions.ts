@@ -1,3 +1,4 @@
+import { res } from "../pages/dashboard";
 import axios from "./axios";
 export const Category_colors = {
   Clothes: "#993377",
@@ -12,11 +13,11 @@ export const Category_colors = {
   Accesories: "burlywood",
 };
 
-export const sets = (set, type) => [
-  ...new Set(set.map((expense) => expense[type])),
+export const sets = (set:res[], type:string) => [
+  ...new Set(set.map((expense:any) => expense[type])),
 ];
 
-export const months_and_their_figure = {
+export const months_and_their_figure:any = {
   "01": "january",
   "02": "febuary",
   "03": "march",
@@ -30,10 +31,13 @@ export const months_and_their_figure = {
   11: "november",
   12: "december",
 };
-export const getMonth = (result) => {
-  const month_and_figure = [];
+export const getMonth = (result:res[]) => {
+
+  type mAf={ month:string; monthInFigure:string }
+
+  let month_and_figure:mAf[] = [];
   const monthFigure = [
-    ...new Set(result.map((result) => result.date.split("-")[1])),
+    ...new Set(result.map((result:res) => result.date.split("-")[1])),
   ];
   monthFigure.map((monthInFigure) => {
     const month = months_and_their_figure[monthInFigure];
@@ -44,7 +48,7 @@ export const getMonth = (result) => {
   return month_and_figure;
 };
 
-export const reduceFunction = (group) => {
+export const reduceFunction = (group:any[]) => {
   const percent = group.reduce((acc, real) => {
     const { productNo, price } = real;
     const productNum = parseInt(productNo);
@@ -55,7 +59,7 @@ export const reduceFunction = (group) => {
   return percent;
 };
 
-export const logout = async (navigate, setuser) => {
+export const logout = async (navigate:Function, setuser:Function) => {
   // e.preventDefault();
   try {
     const { data } = await axios.get("auth/logout");

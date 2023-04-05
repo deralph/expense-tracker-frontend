@@ -3,18 +3,19 @@ import Expense from "../components/expenses/expensePage";
 import axios from "../extras/axios";
 import { Navigate, useNavigate } from "react-router-dom";
 import Loader from "../components/loading/Loader";
+import { res } from "./dashboard";
 
 const Expense_ = () => {
   const navigate = useNavigate();
-  const [result, setResult] = useState();
-  const [problem, setProblem] = useState();
+  const [result, setResult] = useState<res[]>([]);
+  const [problem, setProblem] = useState(false);
 
   const fetcher = useCallback(async () => {
     try {
       const { data } = await axios.get("expenses");
       setResult(data.expenses);
       // console.log("in");
-    } catch (error) {
+    } catch (error:any) {
       // console.log(error);
       if (error.response.status === 401) navigate("/signin");
       setProblem(true);
