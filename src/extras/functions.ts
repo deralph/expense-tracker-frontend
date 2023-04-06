@@ -1,20 +1,20 @@
 import { res } from "../pages/dashboard";
 import axios from "./axios";
 
-interface color{
-  Clothes: string
-  Grocery: string
-  Drinks: string
-  Electric: string
-  Home: string
-  Transport: string
-  Micellenous: string
-  Foods: string
-  Others: string
-  Accesories: string
+interface color {
+  Clothes: string;
+  Grocery: string;
+  Drinks: string;
+  Electric: string;
+  Home: string;
+  Transport: string;
+  Micellenous: string;
+  Foods: string;
+  Others: string;
+  Accesories: string;
 }
 
-export const Category_colors:color|any = {
+export const Category_colors: color | any = {
   Clothes: "#993377",
   Grocery: "skyblue",
   Drinks: "rgba(165, 42, 42, 0.514)",
@@ -27,11 +27,11 @@ export const Category_colors:color|any = {
   Accesories: "burlywood",
 };
 
-export const sets = (set:res[], type:string) => [
-  ...new Set(set.map((expense:any) => expense[type])),
+export const sets = (set: res[], type: string) => [
+  ...new Set(set.map((expense: any) => expense[type])),
 ];
 
-export const months_and_their_figure:any = {
+export const months_and_their_figure: any = {
   "01": "january",
   "02": "febuary",
   "03": "march",
@@ -45,24 +45,23 @@ export const months_and_their_figure:any = {
   11: "november",
   12: "december",
 };
-export type mAf={ month:string; monthInFigure:string }
-export const getMonth = (result:res[]) => {
+export type mAf = { month: string; monthInFigure: string };
 
-
-  let month_and_figure:mAf[] = [];
+export const getMonth = (result: res[]) => {
+  let month_and_figure: mAf[] = [];
   const monthFigure = [
-    ...new Set(result.map((result:res) => result.date.split("-")[1])),
+    ...new Set(result.map((result: res) => (result.date!).split("-")[1])),
   ];
   monthFigure.map((monthInFigure) => {
     const month = months_and_their_figure[monthInFigure];
     const new_info = { month, monthInFigure };
-    month_and_figure.push(new_info);
+   return month_and_figure.push(new_info);
   });
 
   return month_and_figure;
 };
 
-export const reduceFunction = (group:any[]) => {
+export const reduceFunction = (group: any[]) => {
   const percent = group.reduce((acc, real) => {
     const { productNo, price } = real;
     const productNum = parseInt(productNo);
@@ -73,10 +72,10 @@ export const reduceFunction = (group:any[]) => {
   return percent;
 };
 
-export const logout = async (navigate:Function, setuser:Function) => {
+export const logout = async (navigate: Function, setuser: Function) => {
   // e.preventDefault();
   try {
-    const { data } = await axios.get("auth/logout");
+     await axios.get("auth/logout");
     // console.log(data);
     setuser("");
     navigate("/signin");

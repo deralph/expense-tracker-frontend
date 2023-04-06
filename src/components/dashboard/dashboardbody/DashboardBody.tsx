@@ -9,12 +9,16 @@ import useIcons from "../../../extras/useicon";
 import Quote from "./Quote";
 import Incategories from "../../categories/Incategories";
 import { Link } from "react-router-dom";
-import { RiEqualizerLine } from "react-icons/ri";
 import { reduceFunction } from "../../../extras/functions";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
 
-const DashboardBody = ({ result, user }) => {
+interface props {
+  result: Array<any>;
+  user: string;
+}
+
+const DashboardBody: React.FC<props> = ({ result, user }) => {
   const { sidebar, setSidebar } = useGlobal();
   const [presentQuote, setPresentQuote] = useState(0);
 
@@ -48,11 +52,11 @@ const DashboardBody = ({ result, user }) => {
     };
   });
 
-  const sorted_percent = percentage.sort((a, b) => {
+  const sorted_percent = percentage.sort((a: any, b: any) => {
     return b.percenta - a.percenta;
   });
 
-  const sum = (arr, n) => {
+  const sum = (arr: any[], n: number) => {
     const joined_Array = arr.slice(0, n + 1);
     const cummulative = joined_Array.reduce((acc, real) => {
       const { percenta } = real;
@@ -62,7 +66,7 @@ const DashboardBody = ({ result, user }) => {
     return cummulative;
   };
 
-  const Cummulative_percent_Array = [];
+  const Cummulative_percent_Array: any[] = [];
   const Cummulative_percent = () => {
     for (let i = 0; i < sorted_percent.length; i++) {
       const returned_cummulative_array = {
@@ -73,7 +77,7 @@ const DashboardBody = ({ result, user }) => {
     }
   };
   Cummulative_percent();
-  const Real_Gradient_color = [];
+  const Real_Gradient_color: string[] = [];
   const Gradient_color = () => {
     for (let i = 0; i < Cummulative_percent_Array.length; i++) {
       let j, f;
@@ -81,8 +85,9 @@ const DashboardBody = ({ result, user }) => {
       i === Cummulative_percent_Array.length - 1
         ? (f = `${Cummulative_percent_Array[i].tohundred}%`)
         : (f = `${Cummulative_percent_Array[i].tohundred}%,`);
-      const returned_Gradient_color = `${Category_colors[Cummulative_percent_Array[i].type]
-        } ${j}% ${f}`;
+      const returned_Gradient_color = `${
+        Category_colors[Cummulative_percent_Array[i].type]
+      } ${j}% ${f}`;
       Real_Gradient_color.push(returned_Gradient_color);
     }
   };
@@ -94,30 +99,29 @@ const DashboardBody = ({ result, user }) => {
   result.length < 10 ? (f = 0) : (f = result.length - 10);
   const data = result.slice(f, result.length);
   const icons = useIcons();
-  const alimi = [];
-  const all4 = top4.map((all) => {
-    return icons.map((icon) => {
-      if (all.type === icon.title) alimi.push({ ...icon, ...all });
-    });
+  const alimi: any[] = [];
+  top4.map((all) => {
+    return icons.map(
+      (icon) => all.type === icon.title && alimi.push({ ...icon, ...all })
+    );
   });
 
   return (
     <section className={sidebar ? "dashboard-body overflow" : "dashboard-body"}>
       <>
         {" "}
-        {sidebar ?
+        {sidebar ? (
           <FaTimes
             className="dash-top1"
-            style={{ color: '#fff' }}
+            style={{ color: "#fff" }}
             onClick={() => setSidebar(!sidebar)}
           />
-          :
+        ) : (
           <GiHamburgerMenu
             className="dash-top1"
-
             onClick={() => setSidebar(!sidebar)}
           />
-        }
+        )}
         <p className="user">welcome {user}</p>
         <Quote
           quote={quotes[presentQuote].quote}

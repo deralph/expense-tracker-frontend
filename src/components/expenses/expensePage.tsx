@@ -52,7 +52,7 @@ const AllCategories = ({ result }: props) => {
       setDatas(result);
     } else {
       const data = result.filter((res) => {
-        const num = res.date.split("-")[1];
+        const num = res.date!.split("-")[1];
         return num === no;
       });
       // console.log(data);

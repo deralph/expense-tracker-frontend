@@ -14,7 +14,7 @@ const ExpenseForm_ = () => {
       {loading ? (
         <Loader />
       ) : user ? (
-        <ExpenseForm />
+        <ExpenseForm  />
       ) : (
         <Navigate to="/signin" />
       )}

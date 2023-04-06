@@ -5,14 +5,14 @@ import axios from "../extras/axios";
 import Loader from "../components/loading/Loader";
 
 export interface res{
-  _id:string
-productName:string
-category:string
-date:string
-description:string
-price:string|number
-productNo:string|number
-createdBy:string
+  _id?:string
+productName?:string
+category?:string
+date?:string
+description?:string
+price?:string|number
+productNo?:string|number
+createdBy?:string
 }
 
 const Dashboard_ = () => {

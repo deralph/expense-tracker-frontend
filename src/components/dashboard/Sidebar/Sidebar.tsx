@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useGlobal } from "../../context/Context";
 import Logo from "../../home/logo/Logo";
 // import Logout from "../Logout";
-import { logout, mAf } from "../../../extras/functions";
+import { logout } from "../../../extras/functions";
 import { MdLogout } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Back from "../../extras/Back";
 import axios from "../../extras/axios";
+import { res } from "../../pages/dashboard";
 
-const ExpenseForm = ({
+const ExpenseForm:React.FC<res> = ({
   _id,
   category,
   price,
@@ -11,7 +12,7 @@ const ExpenseForm = ({
   productNo,
   date,
   description,
-}) => {
+} ) => {
   // console.log(_id, category, price, productName, productNo, date, description);
   const timing = new Date().toLocaleDateString("en-us", {
     year: "numeric",
@@ -20,7 +21,7 @@ const ExpenseForm = ({
     month: "short",
   });
 
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<res|any>({
     productName: productName || "",
     price: price || "",
     date: date || "",
@@ -30,7 +31,7 @@ const ExpenseForm = ({
   });
 
   const Navigate = useNavigate();
-  const focus = (e) => {
+  const focus = (e:any) => {
     e.target.type = "date";
   };
 
@@ -38,7 +39,7 @@ const ExpenseForm = ({
   const [loading, setLoading] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [msg, setMsg] = useState("");
-  const handleForm = (e) => {
+  const handleForm = (e:any) => {
     e.preventDefault();
     const value = e.target.value;
     const name = e.target.name;
@@ -47,23 +48,23 @@ const ExpenseForm = ({
       [name]: value,
     });
   };
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
     if (
       form.category.trim() === "" ||
       form.date.trim() === "" ||
-      form.price.trim() === "" ||
+      form.price=== "" ||
       form.productName.trim() === "" ||
-      form.productNo.trim() === ""
+      form.productNo === ""
     ) {
       setShowAlert(true);
       setAlert(true);
       setMsg("please enter all input");
-    } else if (form.price < 1) {
+    } else if (Number(form.price) < 1) {
       setAlert(true);
       setMsg("Enter correct inputs");
       setShowAlert(true);
-    } else if (form.productNo < 1) {
+    } else if (Number(form.productNo) < 1) {
       setAlert(true);
       setMsg("Number of product can't be less than 1");
       setShowAlert(true);
@@ -84,7 +85,7 @@ const ExpenseForm = ({
           description: form.description,
         };
         setLoading(true);
-        const { data } = await axios.post("expenses", expense);
+        await axios.post("expenses", expense);
         // console.log(data);
         setShowAlert(true);
         setAlert(false);
@@ -110,7 +111,7 @@ const ExpenseForm = ({
     // console.log(msg);
   };
 
-  const handleEdit = async (e) => {
+  const handleEdit = async (e:any) => {
     e.preventDefault();
     try {
       setLoading(true);

@@ -6,13 +6,14 @@ import "./expenses.css";
 import Loader from "../loading/Loader";
 import Delete from "./delete";
 import Back from "../../extras/Back";
+import { res } from "../../pages/dashboard";
 
 const SingleExpense = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [del, setDelete] = useState(false);
-  const [result, setResult] = useState([]);
-  const [problem, setProblem] = useState();
+  const [result, setResult] = useState<res|any>();
+  const [problem, setProblem] = useState(false);
 
   const fetcher = useCallback(async () => {
     try {
@@ -20,7 +21,7 @@ const SingleExpense = () => {
       const { data } = await axios.get(`expenses/${id}`);
       setResult(data.expense);
       // console.log("in");
-    } catch (error) {
+    } catch (error:any) {
       // console.log(error);
       if (error.response.status === 401) navigate("/signin");
       setProblem(true);
@@ -32,7 +33,7 @@ const SingleExpense = () => {
   }, [fetcher]);
 
   // console.log(result);
-  const { _id, category, price, productName, productNo, date, description } =
+  const { _id, price, productName, productNo, date, description } =
     result;
   // console.log(_id, category, price, productName, productNo, date, description);
 
@@ -77,7 +78,7 @@ const SingleExpense = () => {
               </p>
               <p>
                 <span className="single-span">Price : </span>{" "}
-                <span>{price * productNo || 'loading'}</span>
+                <span>{Number(price) * Number(productNo) || 'loading'}</span>
               </p>
               {description && (
                 <p>
@@ -87,7 +88,7 @@ const SingleExpense = () => {
               )}
               <p>
                 <span className="single-span">Date : </span>{" "}
-                <span>{date && date.slice(0, 10) || 'loading'}</span>
+                <span>{(date && date.slice(0, 10)) || 'loading'}</span>
               </p>
               <p>
                 {/* <span className="single-span">Month : </span> <span>{month}</span> */}

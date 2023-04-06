@@ -10,6 +10,8 @@ interface ContextType {
   setloading(value: boolean): void
   setuser(value: string): void
   user:string
+  probs:boolean
+   setProbs(value: boolean): void
 }
 
 const AppProvider = React.createContext<ContextType|null>(null);
@@ -57,7 +59,7 @@ const Context = ({ children }:props) => {
         loading,
         setloading,
         setuser,
-        user,
+        user,probs, setProbs
       }}
     >
       {children}

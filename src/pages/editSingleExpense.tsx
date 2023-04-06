@@ -3,13 +3,14 @@ import { useParams, useNavigate } from "react-router-dom";
 import ExpenseForm from "../components/expenseform/CategoriesForm";
 import Loader from "../components/loading/Loader";
 import axios from "../extras/axios";
+import { res } from "./dashboard";
 
 const Edit = () => {
   const { id } = useParams();
   // console.log(id);
   const navigate = useNavigate();
-  const [result, setResult] = useState();
-  const [problem, setProblem] = useState();
+  const [result, setResult] = useState<res>();
+  const [problem, setProblem] = useState(false);
 
   const fetcher = useCallback(async () => {
     try {
@@ -17,7 +18,7 @@ const Edit = () => {
       const { data } = await axios.get(`expenses/${id}`);
       setResult(data.expense);
       // console.log("in");
-    } catch (error) {
+    } catch (error: any) {
       // console.log(error);
       if (error.response.status === 401) navigate("/signin");
       setProblem(true);
@@ -36,6 +37,23 @@ const Edit = () => {
     );
   }
   // console.log(result);
-  return <>{!result ? <Loader /> : <ExpenseForm {...result} />};</>;
+  return (
+    <>
+      {!result ? (
+        <Loader />
+      ) : (
+        <ExpenseForm
+          _id={result._id}
+          category={result.category}
+          price={result.price}
+          productName={result.productName}
+          productNo={result.productNo}
+          date={result.date}
+          description={result.description}
+        />
+      )}
+      ;
+    </>
+  );
 };
 export default Edit;
