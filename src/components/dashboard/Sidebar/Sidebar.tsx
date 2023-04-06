@@ -5,11 +5,21 @@ import { Link } from "react-router-dom";
 import { useGlobal } from "../../context/Context";
 import Logo from "../../home/logo/Logo";
 // import Logout from "../Logout";
-import { logout } from "../../../extras/functions";
+import { logout, mAf } from "../../../extras/functions";
 import { MdLogout } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
-const Sidebar = ({
+interface props{
+  category:string[]
+  month:any[]
+  pro:string
+  setPro:React.Dispatch<React.SetStateAction<string>>
+  handleCategory:(opt: string, type: string) => void
+  max:string|number
+  handleMonth:(month: string, no: string | number) => void
+}
+
+const Sidebar:React.FC<props> = ({
   category,
   month,
   pro,
@@ -29,7 +39,9 @@ const Sidebar = ({
       {!category ? (
         <>
           <ul className="side-basic">
-            <Logo show={true} style={{ marginBottom: "30px" }} />
+            <div style={{ marginBottom: "30px" }} className="">
+            <Logo  />
+            </div>
             <Link to="/categories">
               {" "}
               <li>View Categories</li>
@@ -54,7 +66,9 @@ const Sidebar = ({
         </>
       ) : (
         <>
-          <Logo show={true} className="side-logo" />
+        <div  className="side-logo">
+          <Logo  />
+        </div>
           <h3>
             <RiEqualizerLine style={{ margin: "20px 10px 0 20px" }} />
             filter by:
@@ -91,7 +105,7 @@ const Sidebar = ({
             name="price"
             id="price"
             min="0"
-            max={max - 1}
+            max={Number(max) - 1}
             value={pro}
             onChange={(e) => setPro(e.target.value)}
             style={{ width: "100%" }}

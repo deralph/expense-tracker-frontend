@@ -65,6 +65,6 @@ const Context = ({ children }:props) => {
   );
 };
 
-export const useGlobal = () => useContext(AppProvider);
+export const useGlobal = () => useContext(AppProvider) as ContextType;
 
 export default Context;

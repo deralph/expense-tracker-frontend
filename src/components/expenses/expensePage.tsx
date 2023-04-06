@@ -9,19 +9,30 @@ import { RiEqualizerLine } from "react-icons/ri";
 import "../dashboard/dashboardbody/dashboardBody.css";
 
 import { reduceFunction } from "../../extras/functions";
+import { res } from "../../pages/dashboard";
 
-const AllCategories = ({ result }) => {
+interface props {
+  result: res[];
+}
+
+const AllCategories = ({ result }: props) => {
   const { sidebar, setSidebar } = useGlobal();
-  const [pro, setPro] = useState("");
+  const [pro, setPro] = useState<string>("");
 
-  const [datas, setDatas] = useState(result);
+  const [datas, setDatas] = useState<res[]>(result);
   useEffect(
-    () => setDatas(result.filter((type) => type.price * type.productNo > pro)),
+    () =>
+      setDatas(
+        result.filter(
+          ({ price, productNo }) =>
+            Number(price) * Number(productNo) > Number(pro)
+        )
+      ),
     [pro, result]
   );
 
   const max = result
-    .map(({ price, productNo }) => price * productNo)
+    .map(({ price, productNo }) => Number(price) * Number(productNo))
     .reduce((then, now) => {
       return now > then ? now : then;
     }, 0);
@@ -29,14 +40,14 @@ const AllCategories = ({ result }) => {
   const monthOptions = ["all", ...getMonth(result)];
   const options = ["all", ...sets(result, "category")];
 
-  const handleCategory = (opt, type) => {
+  const handleCategory = (opt: string, type: string) => {
     if (opt === "all") {
       setDatas(result);
     } else {
-      setDatas(result.filter((sold) => sold[type] === opt));
+      setDatas(result.filter((sold: any) => sold[type] === opt));
     }
   };
-  const handleMonth = (month, no) => {
+  const handleMonth = (month: string, no: string | number) => {
     if (month === "all") {
       setDatas(result);
     } else {

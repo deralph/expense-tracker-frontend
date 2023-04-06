@@ -10,8 +10,8 @@ productName:string
 category:string
 date:string
 description:string
-price:string
-productNo:string
+price:string|number
+productNo:string|number
 createdBy:string
 }
 

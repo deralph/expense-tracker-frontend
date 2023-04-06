@@ -2,8 +2,9 @@ import React from "react";
 import useIcons from "../../extras/useicon";
 import { Link } from "react-router-dom";
 import "./expenses.css";
+import { res } from "../../pages/dashboard";
 
-const Expense = ({ _id, productName, price, category, productNo, date }) => {
+const Expense = ({ _id, productName, price, category, productNo, date }:res) => {
   const Date = date.slice(0, 10);
   return (
     <div className="expense" key={_id}>
@@ -31,7 +32,7 @@ const Expense = ({ _id, productName, price, category, productNo, date }) => {
         <div className="exp">
           <p className="exp-price">
             <img src="/images/naira.png" alt="naira" className="naira" />
-            {price * productNo}
+            {Number(price) * Number(productNo)}
           </p>
           <p className="exp-date">{category}</p>
         </div>

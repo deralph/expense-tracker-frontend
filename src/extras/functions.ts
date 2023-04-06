@@ -1,6 +1,20 @@
 import { res } from "../pages/dashboard";
 import axios from "./axios";
-export const Category_colors = {
+
+interface color{
+  Clothes: string
+  Grocery: string
+  Drinks: string
+  Electric: string
+  Home: string
+  Transport: string
+  Micellenous: string
+  Foods: string
+  Others: string
+  Accesories: string
+}
+
+export const Category_colors:color|any = {
   Clothes: "#993377",
   Grocery: "skyblue",
   Drinks: "rgba(165, 42, 42, 0.514)",
@@ -31,9 +45,9 @@ export const months_and_their_figure:any = {
   11: "november",
   12: "december",
 };
+export type mAf={ month:string; monthInFigure:string }
 export const getMonth = (result:res[]) => {
 
-  type mAf={ month:string; monthInFigure:string }
 
   let month_and_figure:mAf[] = [];
   const monthFigure = [
