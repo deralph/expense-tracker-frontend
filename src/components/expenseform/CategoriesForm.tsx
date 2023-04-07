@@ -214,7 +214,7 @@ const ExpenseForm:React.FC<res> = ({
         </form>
         <p className="info-p">
           Kindly note that all prices entered should be in NAIRA{" "}
-          <img src="/images/naira.png" alt="naira" className="naira" />
+          <img src="/images/naira.png" alt="naira" className="w-[30px] object-contain" />
         </p>
       </article>
     </section>

@@ -1,9 +1,11 @@
+/* done  */
 .test1 {
   display: flex;
   justify-content: space-between;
   margin: 50px auto;
   width: 95%;
 }
+/* done  */
 .testi h3 {
   font-size: 30px;
   margin: 50px 0;
@@ -28,16 +30,19 @@
   box-shadow: 3px 0 30px rgba(0, 0, 0, 0.4);
   transform: translateY(-20px);
 }
+/* done  */
 .card p {
   font-size: 17px;
   text-align: justify;
   padding: 15px;
   position: relative;
 }
+/* done  */
 .card .p {
   text-transform: capitalize;
   font-weight: 600;
 }
+/* done  */
 .card img {
   width: 50px;
   border-radius: 50%;
@@ -56,6 +61,7 @@
 /* media queries */
 
 @media (min-width: 1800px) {
+  /* done  */
   .card img {
     width: 100px;
   }
@@ -67,19 +73,23 @@
   .icon-right {
     margin-left: 95%;
   }
+  /* done  */
   .card p {
     font-size: 35px;
     margin: 30px 0;
   }
+  /* done  */
   .card .p {
     font-size: 30px;
   }
+  /* done  */
   .testi h3 {
     font-size: 60px;
     margin: 100px 0;
   }
 }
 @media (max-width: 770px) {
+  /* done  */
   .test1 {
     flex-direction: column;
   }

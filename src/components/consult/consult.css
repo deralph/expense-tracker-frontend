@@ -1,3 +1,4 @@
+/* done  */
 .consult-1 {
   display: flex;
   justify-content: space-evenly;
@@ -5,6 +6,7 @@
   object-fit: contain;
   align-items: center;
 }
+/* done  */
 .consult h3 {
   text-align: center;
   font-size: 30px;
@@ -27,12 +29,14 @@
   transform: translateX(-50%);
   border-radius: 5px;
 }
+/* done  */
 .consult-text {
   font-size: 40px;
   font-weight: 550;
   color: #333;
   font-family: sans-serif;
 }
+/* done  */
 .form {
   /* display: grid; */
   /* place-content: center; */
@@ -42,6 +46,7 @@
   width: 300px;
   position: relative;
 }
+/* done  */
 .form input {
   height: 25px;
   background: #ddd;
@@ -52,6 +57,7 @@
   /* margin: 10px 0; */
   margin: 0 0 15px 0;
 }
+/* done  */
 .form .btn-con {
   padding: 10px 20px;
   border: none;
@@ -59,6 +65,7 @@
   color: #fff;
   text-transform: capitalize;
 }
+/* done  */
 .form-1 {
   background: #96f;
   width: 400px;
@@ -72,12 +79,15 @@
 /* media queries */
 
 @media (min-width: 1800px) {
+  /* done  */
   .consult {
     margin: 200px 0;
   }
+  /* done  */
   .consult h3 {
     font-size: 60px;
   }
+  /* done  */
   .form input {
     height: 40px;
     padding: 15px;
@@ -85,14 +95,17 @@
     width: 500px;
     font-size: 30px;
   }
+  /* done  */
   .form {
     height: auto;
     width: auto;
   }
+  /* done  */
   .form-1 {
     height: 600px;
     width: 600px;
   }
+  /* done  */
   .form .btn-con {
     padding: 20px 80px;
     font-size: 40px;
@@ -100,31 +113,38 @@
   }
 }
 @media (max-width: 770px) {
+  /* done  */
   .consult-1 {
     flex-direction: column;
   }
+  /* done  */
   .form-1 {
     width: 300px;
     height: 300px;
   }
+  /* done  */
   .form {
     width: 250px;
     /* height: 200px; */
   }
+  /* done  */
   .consult-text {
     font-size: 25px;
     padding: 20px;
   }
 }
 @media (max-width: 321px) {
+  /* done  */
   .form-1 {
     width: 250px;
     height: 250px;
   }
+  /* done  */
   .form {
     width: 200px;
     /* height: 180px; */
   }
+  /* done  */
   .consult-text {
     font-size: 20px;
     padding: 20px;

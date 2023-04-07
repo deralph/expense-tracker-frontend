@@ -26,9 +26,9 @@ const Features = () => {
     },
   ];
   return (
-    <section className="features" id='features'>
-      <h3>Features</h3>
-      <div className="feature-box">
+    <section className="my-[30px] big:my-[100px]" id='features'>
+      <h3 className="m-[50px_auto] text-center text-[30px] capitalize font-sans relative pb-1 big:text-[60px]">Features</h3>
+      <div className="flex justify-evenly md:flex-col">
         {feat.map((feats) => (
           <Feature {...feats} key={feats.id} />
         ))}

@@ -2,38 +2,38 @@ import React, { useContext, useEffect, useState, useCallback } from "react";
 import axios from "../../extras/axios";
 
 interface ContextType {
-  signIn:boolean
-  setSignIn(value: boolean): void
-  sidebar:boolean
-  setSidebar(value: boolean): void
-  loading:boolean
-  setloading(value: boolean): void
-  setuser(value: string): void
-  user:string
-  probs:boolean
-   setProbs(value: boolean): void
+  signIn: boolean;
+  setSignIn(value: boolean): void;
+  sidebar: boolean;
+  setSidebar(value: boolean): void;
+  loading: boolean;
+  setloading(value: boolean): void;
+  setuser(value: string): void;
+  user: string;
+  probs: boolean;
+  setProbs(value: boolean): void;
 }
 
-const AppProvider = React.createContext<ContextType|null>(null);
+const AppProvider = React.createContext<ContextType | null>(null);
 
-interface props{
-  children:JSX.Element
+interface props {
+  children: JSX.Element;
 }
 
-const Context = ({ children }:props) => {
+const Context = ({ children }: props) => {
   const [loading, setloading] = useState(true);
-  const [user, setuser] = useState('');
+  const [user, setuser] = useState("");
   const [probs, setProbs] = useState(false);
 
   const fetcher = useCallback(async () => {
     try {
       const { data } = await axios.get("expenses");
-      console.log(data)
+      console.log(data);
       setloading(true);
       setuser(data.user);
       setloading(false);
       // console.log("in");
-    } catch (error:any) {
+    } catch (error: any) {
       // console.log(error);
       if (error.response.status === 401) {
         setloading(false);
@@ -59,7 +59,9 @@ const Context = ({ children }:props) => {
         loading,
         setloading,
         setuser,
-        user,probs, setProbs
+        user,
+        probs,
+        setProbs,
       }}
     >
       {children}

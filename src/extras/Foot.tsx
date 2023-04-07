@@ -7,14 +7,14 @@ import {
 } from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs";
 import "./home/footer/footer.css";
-const Foot = () => {
+const Foot:React.FC = () => {
   return (
-    <div className="dev-cont">
-      <p>Developers Contact</p>
-      <ul>
+    <div className="flex justify-evenly p-5">
+      <p className="font-bold font-sans big:text-4xl">Developers Contact</p>
+      <ul className="flex">
         <li>
           {" "}
-          <a
+          <a className="pl-[10px] text-xl text-[#96f] big:text-[50px]"
             href="https://www.facebook.com/profile.php?id=100007056585591"
             target="_blank"
             rel="noreferrer"
@@ -25,7 +25,7 @@ const Foot = () => {
         </li>
         <li>
           {" "}
-          <a
+          <a className="pl-[10px] text-xl text-[#96f] big:text-[50px]"
             href="https://twitter.com/DeRalph15?t=KLXOXWSRgyfr6a98aA_WSQ&s=09"
             target="_blank"
             rel="noreferrer"
@@ -35,7 +35,7 @@ const Foot = () => {
           </a>
         </li>
         <li>
-          <a
+          <a className="pl-[10px] text-xl text-[#96f] big:text-[50px]"
             href="https://wa.me/message/QHR4IAXUJC55J1"
             target="_blank"
             rel="noreferrer"
@@ -45,7 +45,7 @@ const Foot = () => {
           </a>
         </li>
         <li>
-          <a
+          <a className="pl-[10px] text-xl text-[#96f] big:text-[50px]"
             href="https://www.instagram.com/iam_raphael15/"
             target="_blank"
             rel="noreferrer"
@@ -55,7 +55,7 @@ const Foot = () => {
           </a>
         </li>
         <li>
-          <a
+          <a className="pl-[10px] text-xl text-[#96f] big:text-[50px]"
             href="https://www.linkedin.com/in/john-raphael-81226522a"
             target="_blank"
             rel="noreferrer"

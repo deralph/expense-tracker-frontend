@@ -107,30 +107,32 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
   });
 
   return (
-    <section className={sidebar ? "dashboard-body overflow" : "dashboard-body"}>
+    // <section className={sidebar ? "dashboard-body overflow" : "dashboard-body"}>
+    <section className={`sml:p-0 ${sidebar &&'overflow-hidden max-h-[100vh]'}`}>
       <>
         {" "}
         {sidebar ? (
           <FaTimes
-            className="dash-top1"
+            className="hidden sml:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px]"
             style={{ color: "#fff" }}
             onClick={() => setSidebar(!sidebar)}
           />
         ) : (
           <GiHamburgerMenu
-            className="dash-top1"
+            className="hidden sml:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px]"
             onClick={() => setSidebar(!sidebar)}
           />
         )}
-        <p className="user">welcome {user}</p>
+        <p className="text-center text-[30px] capitalize font-bold big:text-[50px] slg:mt-30 slg:text-xl sm:text-base">welcome {user}</p>
         <Quote
           quote={quotes[presentQuote].quote}
           author={quotes[presentQuote].author}
         />
-        <article className="total-category">
-          <div className="total-card">
-            <p>
-              <span>
+        <article className="flex justify-evenly items-start slg:flex-col slg:items-center slg:w-full">
+          {/* <div className="total-card"> */}
+          <div className="p-6 rounded w-auto flex items-center justify-between h-[150px] border-solid border-4 border-[#96f] big:p-10 big:w-[20vw] big:h-auto lg:p-1">
+            <p className="font-medium text-xl big:text-[50px]">
+              <span className="tracking-[3px] text-2xl pb-3 flex font-semibold big:text-4xl">
                 <img
                   src="images/naira.png"
                   alt="naira symbol"
@@ -141,15 +143,15 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
               spent
             </p>
             <Link to="/expense">
-              <button>See List</button>
+              <button className="bg-white p-1 rounded-[20px] font-medium w-24 text-base border-2 border-solid border-[#96f] transition-all hover:bg-[#96f] hover:text-white big:text-4xl big:py-5 big:px-12 big:w-auto ">See List</button>
             </Link>
           </div>
           <div className="line-place">
             <div
-              className="line-chart"
-              style={{ background: Original_Gradient_color }}
+              className={`h-3 w-[300px] rounded my-5 bg-${Original_Gradient_color} big:w-[22vw] big:rounded-[60px] big:h-[30px] sm:w-[200px]`}
             />
-            <div className="line-color">
+            {/* <div className="line-color"> */}
+            <div className="block w-full">
               {percentage.map((category) => {
                 return (
                   <Dash
@@ -165,8 +167,8 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
         </article>
         <Expenses data={data} type="Latest Expense" seeall />
         <div className="dash-top">
-          <h3>Top Categories</h3>
-          <div className="dash-top4">
+          <h3 className="text-center relative text-[30px] pt-5 pb-[10px] big:text-6xl">Top Categories</h3>
+          <div className="grid place-content-center grid-cols-2 sml:flex sml:flex-wrap ">
             {alimi.map((category, index) => {
               return <Incategories {...category} key={index} />;
             })}

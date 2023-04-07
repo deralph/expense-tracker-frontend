@@ -7,5 +7,5 @@ export default axios.create({
   // baseURL: "https://expense-tracked-01.herokuapp.com/api/v1",
   baseURL: "https://expense-tracker-backend-8685.onrender.com/api/v1",
   withCredentials: true,
-  credentials: "include",
+  // credentials: "include",
 });

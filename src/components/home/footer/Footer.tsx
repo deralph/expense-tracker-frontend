@@ -3,20 +3,20 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="foot">
-        <h3>ExpenseTracked</h3>
-        <ul>
-          <li>
+    <footer className="p-[50px_5%] font-sans big:text-4xl">
+      <div className="flex justify-between items-center">
+        <h3 className="sm:text-lg">ExpenseTracked</h3>
+        <ul className="inline-flex p-5">
+          <li className="p-[10px] text-xl capitalize sm:text-sm sm:p-1 big:text-4xl">
             {" "}
-            <a href="#about">about us</a>
+            <a  href="#about">about us</a>
           </li>
-          <li>
-            <a href="#contact">contact us</a>
+          <li className="p-[10px] text-xl capitalize sm:text-sm sm:p-1 big:text-4xl">
+            <a  href="#contact">contact us</a>
           </li>
         </ul>
       </div>
-      <p>copyright &copy; ExpenseTracked 2020</p>
+      <p className="text-center p-5 w-full border-t-2 border-t-[black] border-solid">copyright &copy; ExpenseTracked {new Date().getFullYear()}</p>
     </footer>
   );
 };

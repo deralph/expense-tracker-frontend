@@ -11,22 +11,22 @@ interface props{
       percenta?:string
      }
 
-const Incategories= ({ title, Icon, color, percent, percenta }:props) => {
+const Incategories:React.FC<props>= ({ title, Icon, color, percent, percenta }) => {
   const Red = Icon;
   return (
-    <div className="cate">
-      <Link to="/expense-form">
-        <Red className="caticon" style={{ background: `${color}` }} />
-        <p>{title}</p>
+    <div className="sm:p-1 big:basis-[45%]">
+      <Link className="grid place-items-center p-5 shadow-[3px_3px_20px_#ccc] rounded-2xl m-2 font-sans basis-[30%] min-w-[200px] text-black" to="/expense-form">
+        <Red className={`text-5xl p-2 rounded-[50%] bg-${color} big:text-[80px] big:p-7`} />
+        <p className="text-xl pt-5 font-semibold big:text-4xl p-10">{title}</p>
         {percent && (
           <>
-            <p style={{ display: "flex", alignItems: "center" }}>
+            <p className="text-xl pt-5 font-semibold big:text-4xl p-10 flex items-center" >
               price :{" "}
-              <img src="/images/naira.png" alt="naira" className="naira" />
-              <span style={{ color: "#0033ff" }}> {percent}</span>
+              <img src="/images/naira.png" alt="naira" className="w-[30px] object-contain" />
+              <span className="text-[#0033ff]" > {percent}</span>
             </p>
-            <p>
-              percent : <span style={{ color: "#0033ff" }}> {percenta}%</span>
+            <p className="text-xl pt-5 font-semibold big:text-4xl p-10">
+              percent : <span className="text-[#0033ff]"> {percenta}%</span>
             </p>
           </>
         )}

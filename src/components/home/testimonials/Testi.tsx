@@ -27,11 +27,11 @@ const userData = [
 ];
 const Testi = () => {
   return (
-    <section className="testi" id="testimonial">
-      <h3>Testimonial</h3>
-      <article className="test1">
+    <section  id="testimonial">
+      <h3 className="text-[30px] my-[50px] font-sans text-center relative pb-1 big:my-[100px] big:text-[60px]">Testimonial</h3>
+      <article className="flex justify-between m-[50px_auto] w-[95%] md:flex-col">
         {userData.map((user) => {
-          return <Card key={user.id} {...user} />;
+          return <Card key={user.id}  img={user.img} testimony={user.testimony} name={user.name}  />;
         })}
       </article>
     </section>

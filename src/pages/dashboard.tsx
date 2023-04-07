@@ -18,7 +18,7 @@ createdBy?:string
 const Dashboard_ = () => {
   const navigate = useNavigate();
   const [result, setResult] = useState<res[]>([]);
-  const [user, setuser] = useState();
+  const [user, setuser] = useState('');
   const [problem, setProblem] = useState(false);
 
   const fetcher = useCallback(async () => {

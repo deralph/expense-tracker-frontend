@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +10,26 @@
 body {
   overflow-x: hidden;
 }
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  object-fit: fill;
+}
 textarea {
   resize: none;
+}
+input,
+textarea,
+select {
+  outline: none;
+  border: none;
+}
+button {
+  border: none;
 }
 html {
   scroll-behavior: smooth;
@@ -15,6 +37,7 @@ html {
 a {
   text-decoration: none;
 }
+/* done  */
 .back {
   position: absolute;
   top: 15px;
@@ -26,6 +49,56 @@ a {
   border-radius: 50%;
   z-index: 100;
 }
+.category-h3::after {
+  content: "";
+  position: absolute;
+  width: 15%;
+  height: 5px;
+  background: #96f;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.consult h3::after,
+#testimonial h3::after,
+.about h3::after,
+.features h3::after {
+  content: "";
+  position: absolute;
+  width: 10%;
+  height: 5px;
+  background: #7733ff;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+}
+.dash-top h3:after,
+.expenses h3:after {
+  content: "";
+  position: absolute;
+  width: 20%;
+  height: 5px;
+  background: #9933ff;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+}
+.single-main{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%23b47cec' fill-opacity='0.3'%3E%3Cpolygon fill-rule='evenodd' points='8 4 12 6 8 8 6 12 4 8 0 6 4 4 6 0 8 4'/%3E%3C/g%3E%3C/svg%3E");
+
+}
+.article{
+  background: url('../public/images/20220501164241.jpg')
+}
+.user-con:hover .auth {
+  display: block;
+}
+.auth {
+  display: none;
+}
+/* done  */
 @media (min-width: 1800px) {
   .back {
     font-size: 60px;

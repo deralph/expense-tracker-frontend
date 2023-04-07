@@ -1,3 +1,4 @@
+/* done  */
 .dashboard {
   width: 100%;
   overflow: hidden;
@@ -5,6 +6,7 @@
   min-width: 100vw;
 }
 @media (max-width: 650px) {
+  /* done  */
   .dashboard {
     display: block;
   }

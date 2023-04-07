@@ -5,17 +5,18 @@ import Expenses from "./Expenses";
 import { sets, getMonth } from "../../extras/functions";
 import "../categories/categories.css";
 import Back from "../../extras/Back";
-import { RiEqualizerLine } from "react-icons/ri";
 import "../dashboard/dashboardbody/dashboardBody.css";
 
 import { reduceFunction } from "../../extras/functions";
 import { res } from "../../pages/dashboard";
+import { FaTimes } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 interface props {
   result: res[];
 }
 
-const AllCategories = ({ result }: props) => {
+const AllCategories:React.FC<props> = ({ result }) => {
   const { sidebar, setSidebar } = useGlobal();
   const [pro, setPro] = useState<string>("");
 
@@ -63,11 +64,18 @@ const AllCategories = ({ result }: props) => {
   return (
     <>
       <Back />
-      <RiEqualizerLine
-        className="dash-top1"
-        onClick={() => setSidebar(!sidebar)}
-        style={{ color: sidebar ? "#fff" : "#000" }}
-      />
+      
+      {sidebar ? (
+          <FaTimes
+            className="hidden sml:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px] text-white"
+            onClick={() => setSidebar(!sidebar)}
+          />
+        ) : (
+          <GiHamburgerMenu
+            className="hidden sml:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px]"
+            onClick={() => setSidebar(!sidebar)}
+          />
+        )}
       <div className="dashboard">
         {" "}
         <Sidebar
@@ -79,9 +87,9 @@ const AllCategories = ({ result }: props) => {
           max={max}
           handleMonth={handleMonth}
         />
-        <div className={sidebar ? "all-side overflow" : "all-side"}>
-          <p className="total-p">Total : {reduceFunction(datas)}</p>
-          <Expenses data={datas} type=" Expenses" />{" "}
+        <div className={`all-side ${sidebar && 'overflow-hidden max-h-[100vh]'}`}>
+          <p className="text-center text-2xl font-sans font-bold big:text-[50px]">Total : {reduceFunction(datas)}</p>
+          <Expenses data={datas} type="Expenses" />{" "}
         </div>
       </div>
     </>

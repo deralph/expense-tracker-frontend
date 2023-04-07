@@ -8,11 +8,11 @@ import { FaUserAlt } from "react-icons/fa";
 const Navbar = () => {
   const { setSignIn } = useGlobal();
   return (
-    <nav className="nav">
+    <nav className="p-[10px_5%] text-[#333] flex justify-between items-center font-sans fixed top-0 w-full bg-[#96f] z-[100] transition-all big:p-[40px_8%]">
       <Logo />
-      <ul className="links">
+      <ul className="inline-flex sml:hidden">
         <li>
-          <a
+          <a className="text-lg p-[10px] cursor-pointer big:text-4xl big:p-5 sm:text-xs sm:p-1 "
             href="#about"
             style={{ color: "white" }}
           >
@@ -20,8 +20,7 @@ const Navbar = () => {
           </a>
         </li>
         <li>
-          {" "}
-          <a
+          <a className="text-lg p-[10px] cursor-pointer big:text-4xl big:p-5 sm:text-xs sm:p-1 "
             href="#features"
             style={{ color: "white" }}
           >
@@ -29,8 +28,7 @@ const Navbar = () => {
           </a>
         </li>
         <li>
-          {" "}
-          <a
+          <a className="text-lg p-[10px] cursor-pointer big:text-4xl big:p-5 sm:text-xs sm:p-1 "
             href="#testimonial"
             style={{ color: "white" }}
           >
@@ -38,8 +36,7 @@ const Navbar = () => {
           </a>
         </li>
         <li>
-          {" "}
-          <a
+          <a className="text-lg p-[10px] cursor-pointer big:text-4xl big:p-5 sm:text-xs sm:p-1 "
             href="#contact"
             style={{ color: "white" }}
           >
@@ -47,12 +44,11 @@ const Navbar = () => {
           </a>
         </li>
       </ul>
-      <div className="user-con">
+      <div className="relative flex justify-center items-center w-10 h-10 user-con">
 
-        <FaUserAlt className="user" style={{ fontSize: '15px' }} />
-        <ul className="auth">
-          <li>
-            {" "}
+        <FaUserAlt className="text-white text-[5px] transition-all hover:text-[#f1f1f1] slg:absolute slg:-top-[50%] translate-y-[50%]" style={{ fontSize: '15px' }} />
+        <ul className="auth absolute bg-[#5e5c5c] rounded-lg p-[10px] right-0 top-full w-[150px] transition-all">
+          <li className="p-[6px] border border-solid border-[#5e5c5c80]">
             <Link
               to="/signin"
               onClick={() => setSignIn(false)}
@@ -61,8 +57,7 @@ const Navbar = () => {
               Login
             </Link>
           </li>
-          <li>
-            {" "}
+          <li className="p-[6px]">
             <Link
               to="/signin"
               onClick={() => setSignIn(false)}

@@ -8,9 +8,17 @@ import {
   MdOutlineEmojiTransportation,
 } from "react-icons/md";
 import { BiDrink } from "react-icons/bi";
+import {  IconType } from "react-icons/lib";
+
+
+interface all{
+  title:string;
+  Icon:IconType;
+  color:string
+}
 
 const useIcons = () => {
-  const allIcons = [
+  const allIcons:all[] = [
     {
       title: "Clothes",
       Icon: GiClothes,

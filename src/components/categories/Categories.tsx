@@ -8,8 +8,8 @@ const Categories:React.FC = () => {
   return (
     <>
       <Back />
-      <h3 className="category-h3">Categories</h3>
-      <section className="category">
+      <h3 className="category text-3xl big:text-6xl font-bold font-sans text-center mt-10 relative">Categories</h3>
+      <section className="my-[70px] w-3/5 lg:w-[90vw] flex justify-evenly flex-wrap">
         {all.map((category) => {
           return <Incategories  title={category.title} Icon={category.Icon} color={category.color} key={category.title} />;
         })}

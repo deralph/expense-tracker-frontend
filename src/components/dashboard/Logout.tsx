@@ -4,15 +4,14 @@ import { useNavigate } from "react-router-dom";
 import axios from "../../extras/axios";
 import { useGlobal } from "../context/Context";
 
-const Logout = () => {
+const Logout:React.FC = () => {
   const navigate = useNavigate();
-  const [problem, setProblem] = useState();
+  const [problem, setProblem] = useState(false);
   // const { setuser } = useGlobal();
 
   const logout = async () => {
-    e.preventDefault();
     try {
-      const { data } = await axios.get("auth/logout");
+      await axios.get("auth/logout");
       // console.log(data);
       // setuser("");
       navigate("/signin");
@@ -23,23 +22,16 @@ const Logout = () => {
   };
   if (problem) {
     return (
-      <h1
-        style={{
-          display: "grid",
-          placeContent: "center",
-          height: "100vh",
-          width: "100vw",
-        }}
-      >
+      <h1 className="grid place-content-center h-[100vh] w-[100vw]">
         {" "}
         SOMETHING WENT WRONG
       </h1>
     );
   }
   return (
-    <p className="out" onClick={logout()}>
+    <p className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans sticky flex items-center cursor-pointer hover:text-[#bbb] hover:underline  big:text-4xl big:p-5" onClick={() => logout()}>
       Log Out
-      <MdLogout style={{ marginLeft: "10px" }} />
+      <MdLogout className="ml-[10px]" />
     </p>
   );
 };

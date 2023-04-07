@@ -10,13 +10,13 @@ import { MdLogout } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
 interface props{
-  category:string[]
-  month:any[]
-  pro:string
-  setPro:React.Dispatch<React.SetStateAction<string>>
-  handleCategory:(opt: string, type: string) => void
-  max:string|number
-  handleMonth:(month: string, no: string | number) => void
+  category?:string[]
+  month?:any[]
+  pro?:string
+  setPro?:React.Dispatch<React.SetStateAction<string>>
+  handleCategory?:(opt: string, type: string) => void
+  max?:string|number
+  handleMonth?:(month: string, no: string | number) => void
 }
 
 const Sidebar:React.FC<props> = ({
@@ -34,51 +34,54 @@ const Sidebar:React.FC<props> = ({
   const subject =
     "Hi \n I am ________ \n I am writting to you in subject to the website https://expense-tracked.netlify.app \n I would love to seek financial advice towards ______, \n Thanks";
   return (
-    <aside className={sidebar ? "sidebar show" : "sidebar"}>
+    // <aside className={`sidebar ${sidebar &&'show'}`}>
+    <aside className={`nin-w-[250px] bg-[#93f] min-h-[100vh] h-auto p-5 fixed w-[20vw] left-0 top-0 block transition-all overflow-auto big:w-[25vw] sml:-left-[120%] z-[100] overflow-y-scroll ${sidebar &&'sml:left-0 transition-all'}`}>
       {" "}
       {!category ? (
         <>
-          <ul className="side-basic">
-            <div style={{ marginBottom: "30px" }} className="">
+          <ul className="mt-[50px]">
+            <div className="mb-[30px]">
             <Logo  />
             </div>
             <Link to="/categories">
               {" "}
-              <li>View Categories</li>
+              <li className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >View Categories</li>
             </Link>
             <Link to="/expense">
-              <li>All Expenses</li>
+              <li className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >All Expenses</li>
             </Link>
             <Link to="/expense-form">
-              <li>Add Expenses</li>
+              <li className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >Add Expenses</li>
             </Link>
             <Link to="/consultation">
-              <li>Book Consultation</li>
+              <li className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >Book Consultation</li>
             </Link>
             <a href={`mailto:deralph73@gmail.com?subject=${subject}`}>
-              <li>Seek Financial Advice</li>
+              <li className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >Seek Financial Advice</li>
             </a>
           </ul>
-          <p className="out" onClick={() => logout(navigate, setuser)}>
+          <p className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans sticky flex items-center cursor-pointer hover:text-[#bbb] hover:underline  big:text-4xl big:p-5" onClick={() => logout(navigate, setuser)}>
             Log Out
-            <MdLogout style={{ marginLeft: "10px" }} />
+            <MdLogout className="ml-[10px]"/>
           </p>
         </>
       ) : (
         <>
-        <div  className="side-logo">
+        <div  className="pb-[100px]">
           <Logo  />
         </div>
-          <h3>
-            <RiEqualizerLine style={{ margin: "20px 10px 0 20px" }} />
+          <h3 className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans text-center p-1 big:text--[50px] mt-[50px]">
+            <RiEqualizerLine className="pt-5 pr-[10px] pl-5" />
             filter by:
           </h3>
-          <ul className="side-ul">
+          {/* side ul */}
+          <ul className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px] my-1" >
             <p>By category</p>
             {category.map((option, index) => {
               return (
                 <li
-                  onClick={() => handleCategory(option, "category")}
+                className="cursor-pointer text-[#aaa] font-sans p-1 font-semibold big:text-4xl big:p-5"
+                  onClick={() => handleCategory!(option, "category")}
                   key={index}
                 >
                   {option}
@@ -86,20 +89,20 @@ const Sidebar:React.FC<props> = ({
               );
             })}
           </ul>
-          <ul className="side-ul">
-            <p>By month</p>
-            {month.map((option, index) => {
+          <ul className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px] my-1">
+            <p className="text-[#ddd] font-sans font-semibold py-[10px] px-4 big:text-4xl big:p-5">By month</p>
+            {month!.map((option, index) => {
               // console.log(option);
               const month = option.month || option;
               const no = option.monthInFigure || 0;
               return (
-                <li onClick={() => handleMonth(month, no)} key={index}>
+                <li className="text-[#aaa] font-sans p-1 font-semibold" onClick={() => handleMonth!(month, no)} key={index}>
                   {month}
                 </li>
               );
             })}
           </ul>
-          <label htmlFor="range">By price</label>
+          <label className="text-[#ddd] font-sans font-semibold py-[10px] px-4 big:text-4xl big:p-5" htmlFor="range">By price</label>
           <input
             type="range"
             name="price"
@@ -107,13 +110,14 @@ const Sidebar:React.FC<props> = ({
             min="0"
             max={Number(max) - 1}
             value={pro}
-            onChange={(e) => setPro(e.target.value)}
+            onChange={(e) => setPro!(e.target.value)}
             style={{ width: "100%" }}
+            className="py-1"
           />
-          <p className="range-p">{pro}</p>
-          <p className="out" onClick={() => logout(navigate, setuser)}>
+          <p className="text-[#aaa] p-1 font-sans font-semibold  big:text-4xl big:p-5">{pro}</p>
+          <p className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans sticky flex items-center cursor-pointer hover:text-[#bbb] hover:underline  big:text-4xl big:p-5" onClick={() => logout(navigate, setuser)}>
             Log Out
-            <MdLogout style={{ marginLeft: "10px" }} />
+            <MdLogout className="ml-[10px]"/>
           </p>
         </>
       )}
@@ -122,3 +126,4 @@ const Sidebar:React.FC<props> = ({
 };
 
 export default Sidebar;
+

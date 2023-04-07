@@ -46,14 +46,14 @@ const SingleExpense = () => {
   }
 
   return (
-    <div className="single-main">
+    <div className="single-main flex justify-center flex-col w-[100vw] h-[100vh] bg-[#9966ff4d] ">
       <Back />
-      <div className="main">
+      <div className="flex justify-center flex-col items-center">
         {!result ? (
           <Loader />
         ) : (
           <>
-            <section className="single-exp" >
+            <section className="font-sans max-w-[500px] w-full bg-[#eee] border-solid border-[#96f] border-[5px]" >
               <div
                 style={{
                   display: "flex",
@@ -61,47 +61,46 @@ const SingleExpense = () => {
                   marginBottom: "40px",
                 }}
               >
-                {/* <Red className="caticon" style={{ background: `${color}` }} /> */}
+                {/* <Red className="rounded-[50%] text-[50px] p-[10px] big:text-[80px] big:p-7" style={{ background: `${color}` }} /> */}
               </div>
 
-              <p>
-                <span className="single-span">Name : </span>{" "}
+              <p className="flex text-lg flex-wrap w-full p-[10px]">
+                <span className="basis-2/5">Name : </span>{" "}
                 <span>{productName || 'loading'}</span>
               </p>
-              <p>
-                <span className="single-span">Price : </span>{" "}
+              <p className="flex text-lg flex-wrap w-full p-[10px]">
+                <span className="basis-2/5">Price : </span>{" "}
                 <span>{price || 'loading'}</span>
               </p>
-              <p>
-                <span className="single-span">Numbar : </span>{" "}
+              <p className="flex text-lg flex-wrap w-full p-[10px]">
+                <span className="basis-2/5">Numbar : </span>{" "}
                 <span>{productNo || 'loading'}</span>
               </p>
-              <p>
-                <span className="single-span">Price : </span>{" "}
+              <p className="flex text-lg flex-wrap w-full p-[10px]">
+                <span className="basis-2/5">Price : </span>{" "}
                 <span>{Number(price) * Number(productNo) || 'loading'}</span>
               </p>
               {description && (
-                <p>
-                  <span className="single-span">Description : </span>{" "}
+                <p className="flex text-lg flex-wrap w-full p-[10px]">
+                  <span className="basis-2/5">Description : </span>{" "}
                   <span>{description || 'loading'}</span>
                 </p>
               )}
-              <p>
-                <span className="single-span">Date : </span>{" "}
+              <p className="flex text-lg flex-wrap w-full p-[10px]">
+                <span className="basis-2/5">Date : </span>{" "}
                 <span>{(date && date.slice(0, 10)) || 'loading'}</span>
               </p>
-              <p>
-                {/* <span className="single-span">Month : </span> <span>{month}</span> */}
+              <p className="flex text-lg flex-wrap w-full p-[10px]">
+                {/* <span className="basis-2/5">Month : </span> <span>{month}</span> */}
               </p>
             </section>
-            <div className="icons-box">
+            <div className="flex items-center justify-end w-full my-5 mx-[10px] max-w-[500px]">
               <MdOutlineModeEditOutline
-                className="edit-icon"
+                className="text-4xl"
                 onClick={() => navigate("edit")}
               />
               <MdDeleteForever
-                style={{ color: "red" }}
-                className="delete-icon"
+                className="text-4xl text-red-600"
                 onClick={() => setDelete(true)}
               />
               {del && <Delete id={_id} setDelete={setDelete} />}
