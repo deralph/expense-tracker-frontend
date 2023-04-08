@@ -1,7 +1,5 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+
+/* done  */
 .signin {
   display: grid;
   place-content: center;
@@ -22,6 +20,7 @@
 .sign p {
   padding: 10px 0;
 }
+/* done  */
 .signin footer {
   font-size: 17px;
   font-weight: 800;
@@ -29,13 +28,15 @@
   margin-top: 50px;
   text-transform: capitalize;
 }
+/* done  */
 .signin footer span,
 .signin footer a {
-  color: orange;
+  color: #ffa500;
   font-weight: 500;
   text-decoration: underline;
   cursor: pointer;
 }
+/* done  */
 .signin .sign,
 .sign {
   border-radius: 10px;
@@ -49,7 +50,7 @@
   max-width: 520px;
   width: 90vw;
 }
-
+/* done  */
 .sign h3 {
   font-weight: 700;
   font-size: 30px;
@@ -57,7 +58,7 @@
   text-transform: capitalize;
   color: #111;
 }
-
+/* done  */
 .sign input,
 .sign select,
 .sign textarea {
@@ -73,10 +74,12 @@
   padding: 10px 0 10px 5px;
   object-fit: contain;
 }
+/* done  */
 .sign select {
   background: #fff;
   height: 100%;
 }
+/* done  */
 .sign textarea {
   height: 120px;
   font-size: 15px;
@@ -84,6 +87,7 @@
   padding: 10px;
   width: 95%;
 }
+/* done  */
 .info-p {
   margin: 50px auto;
   text-align: center;
@@ -92,6 +96,7 @@
   color: red;
   font-family: sans-serif;
 }
+/* done  */
 .sign .alert {
   font-size: 13px;
   padding: 5px;
@@ -99,14 +104,17 @@
   font-family: sans-serif;
   font-weight: 600;
 }
+/* done  */
 .sign .sucess {
-  color: green;
+  color: #008000;
   border: 2px solid green;
 }
+/* done  */
 .sign .fail {
   color: red;
   border: 2px solid red;
 }
+/* done  */
 .sign button {
   background: #9966ff;
   color: #fff;
@@ -123,6 +131,7 @@
   outline: none;
   cursor: pointer;
 }
+/* done  */
 .sign button:disabled {
   background: #a091be;
 }
@@ -147,8 +156,11 @@
 /* media queries */
 
 @media (min-width: 1800px) {
+  /* done  */
   .sign input,
+  /* done  */
   .sign select,
+  /* done  */
   .sign textarea {
     display: block;
     width: 95%;
@@ -157,13 +169,16 @@
     font-size: 30px;
     padding-left: 10px;
   }
+  /* done  */
   .signin {
     height: auto;
     min-height: 100vh;
   }
+  /* done  */
   .sign textarea {
     height: 200px;
   }
+  /* done  */
   .sign button {
     padding: 30px 80px;
     font-size: 3rem;
@@ -174,16 +189,20 @@
   .sign-article {
     max-width: 60vw !important;
   }
+  /* done  */
   .sign .alert {
     font-size: 30px;
     padding: 30px;
   }
+  /* done  */
   .sign h3 {
     font-size: 40px;
   }
+  /* done  */
   .sign p {
     font-size: 30px;
   }
+  /* done  */
   .info-p {
     font-size: 40px;
     margin-top: 80px;
@@ -191,20 +210,24 @@
   .naira {
     width: 70px;
   }
+  /* done  */
   .signin footer {
     font-size: 40px;
     margin-top: 80px;
   }
 }
 @media (max-width: 600px) {
+  /* done  */
   .sign {
     padding: 10px 10px 40px;
   }
+  /* done  */
   .sign input {
     height: 27px;
     font-size: 13px;
     border-width: 1px;
   }
+  /* done  */
   .sign h3 {
     padding: 15px;
   }

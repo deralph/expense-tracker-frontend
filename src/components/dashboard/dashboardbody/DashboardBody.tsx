@@ -148,7 +148,7 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
           </div>
           <div className="line-place">
             <div
-              className={`h-3 w-[300px] rounded my-5 bg-${Original_Gradient_color} big:w-[22vw] big:rounded-[60px] big:h-[30px] sm:w-[200px]`}
+              className={`h-3 w-[300px] rounded my-5 big:w-[22vw] big:rounded-[60px] big:h-[30px] sm:w-[200px]`} style={{background:`${Original_Gradient_color}`}}
             />
             {/* <div className="line-color"> */}
             <div className="block w-full">

@@ -16,7 +16,7 @@ const Incategories:React.FC<props>= ({ title, Icon, color, percent, percenta }) 
   return (
     <div className="sm:p-1 big:basis-[45%]">
       <Link className="grid place-items-center p-5 shadow-[3px_3px_20px_#ccc] rounded-2xl m-2 font-sans basis-[30%] min-w-[200px] text-black" to="/expense-form">
-        <Red className={`text-5xl p-2 rounded-[50%] bg-${color} big:text-[80px] big:p-7`} />
+        <Red className={`text-5xl p-2 rounded-[50%]  big:text-[80px] big:p-7`} style={{background:`${color}`}} />
         <p className="text-xl pt-5 font-semibold big:text-4xl p-10">{title}</p>
         {percent && (
           <>

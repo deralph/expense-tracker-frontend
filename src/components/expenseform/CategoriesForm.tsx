@@ -131,18 +131,19 @@ const ExpenseForm:React.FC<res> = ({
 
   return (
     <section
-      className="signin"
+    // section className='signin'
+      className="grid place-content-center relative h-[100vh] min-h-[650px] big:h-auto big:min-h-[100vh]"
       style={{ padding: "50px 0 100px", minHeight: "800px" }}
     >
       <Back />
       <div className="semi-bg" />
       <article className="sign-article">
         <form action="" className="sign">
-          <h3>Enter expense details</h3>
+          <h3 className="font-bold text-[30px] p-5 capitalize text-[#111] big:text-4xl sml:p-4">Enter expense details</h3>
           {showAlert && (
-            <p className={`alert ${alert ? "fail" : "sucess"}`}>{msg}</p>
+            <p className={`text-sm p-1 text-center font-sans font-semibold big:text-[30px] big:p-[30px] ${alert ? "text-[#f00] border-2 border-solid border-[#f00]" : "text-[#008000] border-2 border-solid border-[#008000]"}`}>{msg}</p>
           )}
-          <input
+          <input className="block w-full h-10 rounded-[30px] m-[20px_auto] text-xl p-[10px_0_10px_5px] border-2 border-solid border-[#aaa] big:block big:w-[95%] big:h-[70px] big:m-[60px_auto] text-[30px] pl-[10px] sml:h-7 sml:text-sml sml:border"
             type="text"
             name="productName"
             id="productName"
@@ -151,7 +152,7 @@ const ExpenseForm:React.FC<res> = ({
             onChange={handleForm}
             required
           />
-          <input
+          <input className="block w-full h-10 rounded-[30px] m-[20px_auto] text-xl p-[10px_0_10px_5px] border-2 border-solid border-[#aaa] big:block big:w-[95%] big:h-[70px] big:m-[60px_auto] big:text-[30px] big:pl-[10px] sml:h-7 sml:text-sml sml:border"
             type="number"
             value={form.price}
             name="price"
@@ -160,7 +161,7 @@ const ExpenseForm:React.FC<res> = ({
             onChange={handleForm}
             required
           />
-          <input
+          <input className="block w-full h-10 rounded-[30px] m-[20px_auto] text-xl p-[10px_0_10px_5px] border-2 border-solid border-[#aaa] big:block big:w-[95%] big:h-[70px] big:m-[60px_auto] text-[30px] pl-[10px] sml:h-7 sml:text-sml sml:border"
             type="number"
             value={form.productNo}
             id="productNo"
@@ -169,7 +170,7 @@ const ExpenseForm:React.FC<res> = ({
             onChange={handleForm}
             required
           />
-          <input
+          <input className="block w-full h-10 rounded-[30px] m-[20px_auto] text-xl p-[10px_0_10px_5px] border-2 border-solid border-[#aaa] big:block big:w-[95%] big:h-[70px] big:m-[60px_auto] text-[30px] pl-[10px] sml:h-7 sml:text-sml sml:border"
             type="text"
             value={form.date}
             id="date"
@@ -184,6 +185,7 @@ const ExpenseForm:React.FC<res> = ({
             id="category"
             value={form.category}
             onChange={handleForm}
+            className="block w-full rounded-[30px] m-[20px_auto] text-xl p-[10px_0_10px_5px] border-2 border-solid border-[#aaa] big:block big:w-[95%] big:h-[70px] big:m-[60px_auto] big:text-[30px] big:pl-[10px] bg-white h-full"
           >
             <option value="">Select Categories</option>
             <option value="Clothes">Clothes</option>
@@ -203,16 +205,17 @@ const ExpenseForm:React.FC<res> = ({
             value={form.description}
             onChange={handleForm}
             placeholder="Description"
+            className="block w-[95%] h-[120px] rounded-[30px] m-[20px_auto] text-base font-sans p-[10px] border-2 border-solid border-[#aaa] big:block big:w-[95%] big:m-[60px_auto] big:text-[30px] big:pl-[10px] big:h-[200px]"
           ></textarea>
           {_id ? (
-            <button onClick={handleEdit}>Edit</button>
+            <button onClick={handleEdit} className="bg-[#96f] text-white py-4 px-10 text-[1.2rem] font-bold rounded-[30px] absolute -bottom-[20px] left-[50%] -translate-x-[50%] w-[200px] cursor-pointer big:p-[30px_80px] big:text-[3rem] big:w-auto big:-bottom-[60px] big:rounded-[50px]">Edit</button>
           ) : (
-            <button onClick={handleSubmit} disabled={loading}>
+            <button onClick={handleSubmit} disabled={loading} className="bg-[#96f] text-white py-4 px-10 text-[1.2rem] font-bold rounded-[30px] absolute -bottom-[20px] left-[50%] -translate-x-[50%] w-[200px] cursor-pointer disabled:bg-[#a091be] big:p-[30px_80px] big:text-[3rem] big:w-auto big:-bottom-[60px] big:rounded-[50px]">
               Submit
             </button>
           )}
         </form>
-        <p className="info-p">
+        <p className="info-p my-[50px_auto] text-center p-5 text-[#f00] font-sans py-[10px] big:text-4xl big:mt-20">
           Kindly note that all prices entered should be in NAIRA{" "}
           <img src="/images/naira.png" alt="naira" className="w-[30px] object-contain" />
         </p>

@@ -13,7 +13,7 @@ const Home = () => {
     <>
       <Navbar />
       <Body />
-      <div className="container" style={{ padding: "0 5%" }}>
+      <div className="w-full big:max-w-[1800px] p-x-[5%]">
         <About />
         <Record />
         <Features />

@@ -15,7 +15,7 @@ const Register = () => {
   const [alert, setAlert] = useState(false);
   const [loading, setloading] = useState(false);
   const [msg, setMsg] = useState("");
-  const controlSubmit = async (e) => {
+  const controlSubmit = async (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     const regex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -63,7 +63,7 @@ const Register = () => {
     }
   };
 
-  const handleForm = (e) => {
+  const handleForm = (e:React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const value = e.target.value;
     const name = e.target.name;
@@ -71,7 +71,8 @@ const Register = () => {
   };
   return (
     <article className="sign-article">
-      <form action="" className="sign">
+    {/* <form className="sign"> */}
+      <form action="" className="rounded-xl p-[20px_30px_50px] bg-white text-center relative shadow-[3px_3px_20px_#aaa] sml:p-[10px_10px_40px]">
         <h3>register</h3>
         <p>if you don't have an account</p>
         {msg && <p className={`alert ${alert ? "fail" : "sucess"}`}>{msg}</p>}
@@ -81,7 +82,7 @@ const Register = () => {
           id="fullname"
           value={form.fullname}
           placeholder="Full Name"
-          onChange={handleForm}
+          onChange={(e)=>handleForm(e)}
           required
         />
         <input
@@ -90,7 +91,7 @@ const Register = () => {
           name="email"
           id="email"
           placeholder="Email Address"
-          onChange={handleForm}
+          onChange={(e)=>handleForm(e)}
           required
         />
         <input
@@ -99,7 +100,7 @@ const Register = () => {
           id="password"
           name="password"
           placeholder="Password"
-          onChange={handleForm}
+          onChange={(e)=>handleForm(e)}
           required
         />
         <input
@@ -108,15 +109,15 @@ const Register = () => {
           id="comfirmPass"
           name="confirmPass"
           placeholder="Confirm Password"
-          onChange={handleForm}
+          onChange={(e)=>handleForm(e)}
           required
         />
-        <button onClick={controlSubmit} disabled={loading}>
+        <button onClick={(e)=>controlSubmit(e)} disabled={loading}>
           Register
         </button>
       </form>
-      <footer>
-        already a user? <span onClick={() => setSignIn(true)}>sign in </span>
+      <footer className="text-base font-extrabold text-center mt-[50px] capitalize">
+        already a user? <span onClick={() => setSignIn(true)} className="text-[#ffa500] font-bold underline cursor-pointer big:text-4xl big:mt-20">sign in </span>
       </footer>
     </article>
   );

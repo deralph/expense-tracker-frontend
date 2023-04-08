@@ -15,7 +15,7 @@ const Expense = ({ _id, productName, price, category, productNo, date }:res) => 
             if (icon.title === category) {
               return (
                 <Red
-                  className={`text-[30px] p-1 rounded-[50%] big:text-[80px] big:p-6 bg-${icon.color}`}
+                  className={`text-[30px] p-1 rounded-[50%] big:text-[80px] big:p-6 `} style={{background:`${icon.color}`}} 
                   key={icon.title}
                 />
               );

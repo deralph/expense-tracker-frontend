@@ -3,14 +3,14 @@ import "./Signin.css";
 import { useGlobal } from "../context/Context";
 
 const Reset = () => {
-  const { resetPassword } = useGlobal();
+  // const { resetPassword } = useGlobal();
   const [email, setEmail] = useState("");
 
   const [alert, setAlert] = useState(false);
   const [loading, setloading] = useState(false);
   const [msg, setMsg] = useState("");
 
-  const controlSubmit = async (e) => {
+  const controlSubmit = async (e:Event) => {
     e.preventDefault();
     const regex =
       /^([a-z A-Z 0-9 \._]+)@([a-z A-Z]+).([a-z A-Z]{2,6})(.[a-z]{2,6})?$/;
@@ -27,7 +27,7 @@ const Reset = () => {
       try {
         setMsg("");
         setloading(true);
-        await resetPassword(email);
+        // await resetPassword(email);
         setMsg("check your mail for further instruction");
       } catch (error) {
         // console.log(error.message);
@@ -51,7 +51,7 @@ const Reset = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          <button onClick={controlSubmit} disabled={loading}>
+          <button onClick={()=>controlSubmit} disabled={loading}>
             Reset
           </button>
         </form>

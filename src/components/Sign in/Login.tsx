@@ -14,7 +14,7 @@ const Login = () => {
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
 
-  const controlSubmit = async (e) => {
+  const controlSubmit = async (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     const regex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -72,7 +72,7 @@ const Login = () => {
           placeholder="Password"
           onChange={(e) => setPass(e.target.value)}
         />
-        <button onClick={controlSubmit} disabled={loading}>
+        <button onClick={(e)=>controlSubmit(e)} disabled={loading}>
           sign in
         </button>
       </form>
