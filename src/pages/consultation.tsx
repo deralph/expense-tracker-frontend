@@ -1,7 +1,7 @@
 import React from "react";
-import Consult from "../components/consult/Consult";
+import Consult from "../components/consult";
 
-const consultation = () => {
+const consultation:React.FC = () => {
   return <Consult back />;
 };
 

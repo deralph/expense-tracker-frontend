@@ -36,7 +36,7 @@ module.exports = {
       slg: { max: "900px" },
       // => @media (max-width: 900px) { ... }
 
-      md: { max: "767px" },
+      md: { max: "770px" },
       // => @media (max-width: 767px) { ... }
 
       sml: { max: "639px" },

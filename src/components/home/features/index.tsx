@@ -2,9 +2,8 @@ import React from "react";
 import Feature from "./Feature";
 import { BsPersonCheckFill } from "react-icons/bs";
 import { MdTrackChanges, MdOutlineMonitor } from "react-icons/md";
-import "./Features.css";
 
-const Features = () => {
+const Features:React.FC = () => {
   const feat = [
     {
       id: 1,

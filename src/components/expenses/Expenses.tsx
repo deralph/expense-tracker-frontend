@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Expense from "./Expense";
-import "./expenses.css";
 import { res } from "../../pages/dashboard";
 
 interface props{ data:res[]

@@ -1,11 +1,11 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { useGlobal } from "../components/context/Context";
-import Loader from "../components/loading/Loader";
-import SignInNow from "../components/Sign in/SignIn";
+import { useGlobal } from "../components/context";
+import Loader from "../components/loading";
+import SignInNow from "../components/Sign in";
 import Problem from "../extras/Problem";
 
-const SignIn = () => {
+const SignIn:React.FC = () => {
   const { loading, user, probs } = useGlobal();
   if (probs) {
     return <Problem />;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MdLogout } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import axios from "../../extras/axios";
-import { useGlobal } from "../context/Context";
+import { useGlobal } from "../context";
 
 const Logout:React.FC = () => {
   const navigate = useNavigate();

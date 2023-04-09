@@ -98,6 +98,10 @@ a {
 .auth {
   display: none;
 }
+.welcome {
+  background: url(../public/images/journalpics.jpg);
+  background-size: 100% 100%;
+  background-position: 100% 100%;}
 /* done  */
 @media (min-width: 1800px) {
   .back {

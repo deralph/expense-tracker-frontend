@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useGlobal } from "../context/Context";
-import Sidebar from "../dashboard/Sidebar/Sidebar";
+import { useGlobal } from "../context";
+import Sidebar from "../dashboard/Sidebar";
 import Expenses from "./Expenses";
 import { sets, getMonth } from "../../extras/functions";
-import "../categories/categories.css";
 import Back from "../../extras/Back";
-import "../dashboard/dashboardbody/dashboardBody.css";
-
 import { reduceFunction } from "../../extras/functions";
 import { res } from "../../pages/dashboard";
 import { FaTimes } from "react-icons/fa";

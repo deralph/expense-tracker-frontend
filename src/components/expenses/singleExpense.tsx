@@ -2,13 +2,12 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { MdOutlineModeEditOutline, MdDeleteForever } from "react-icons/md";
 import axios from "../../extras/axios";
-import "./expenses.css";
-import Loader from "../loading/Loader";
+import Loader from "../loading";
 import Delete from "./delete";
 import Back from "../../extras/Back";
 import { res } from "../../pages/dashboard";
 
-const SingleExpense = () => {
+const SingleExpense:React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [del, setDelete] = useState(false);

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Error.css";
-const Error = () => {
+const Error:React.FC = () => {
   return (
     <section className="flex justify-evenly items-center text-center font-sans bg-[#96f] min-h-[100vh] p-5 slg:flex-col slg:h-auto slg:overflow-hidden slg:pb-10">
       <img src="/images/error.png" alt="404 error" className="big:w-[40vw] slg:object-contain slg:w-[90%]"/>

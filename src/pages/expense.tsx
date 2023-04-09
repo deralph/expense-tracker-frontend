@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
-import Expense from "../components/expenses/expensePage";
+import Expense from "../components/expenses";
 import axios from "../extras/axios";
 import { Navigate, useNavigate } from "react-router-dom";
-import Loader from "../components/loading/Loader";
+import Loader from "../components/loading";
 import { res } from "./dashboard";
 
-const Expense_ = () => {
+const Expense_:React.FC = () => {
   const navigate = useNavigate();
   const [result, setResult] = useState<res[]>([]);
   const [problem, setProblem] = useState(false);

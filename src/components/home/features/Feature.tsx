@@ -9,7 +9,7 @@ interface props{
 
 const Feature:React.FC<props> = ({ Icon, title, desc }) => {
   return (
-    <div className=" basis-[30%] text-center font-sans p-5">
+    <div className=" basis-[30%] text-center font-sans p-5 md:px-[5%]">
       <div className="flex justify-center">
       <Icon className="text-[4rem] text-[#96f] text-center big:text-[8rem]" />
       </ div>

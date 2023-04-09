@@ -1,7 +1,6 @@
 import React from "react";
-import "./footer.css";
 
-const Footer = () => {
+const Footer:React.FC = () => {
   return (
     <footer className="p-[50px_5%] font-sans big:text-4xl">
       <div className="flex justify-between items-center">

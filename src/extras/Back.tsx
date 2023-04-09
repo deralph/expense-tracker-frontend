@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 
-const Back = () => {
+const Back:React.FC = () => {
   const navigate = useNavigate();
   return (
     <div>

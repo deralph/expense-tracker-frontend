@@ -136,12 +136,14 @@ const ExpenseForm:React.FC<res> = ({
       style={{ padding: "50px 0 100px", minHeight: "800px" }}
     >
       <Back />
-      <div className="semi-bg" />
-      <article className="sign-article">
-        <form action="" className="sign">
+      {/* <div className="semi-bg" /> */}
+      <div className="sabsolute top-0 h-[60vh] w-full bg-[#96f] -z-[1] rounded-b-[50px]" />
+      {/* <article className="sign-article"> */}
+      <article className="w-[90vw] max-w-[520px] big:max-w-[60vw]">
+        <form action="" className="rounded-xl p-[20px_30px_50px] bg-white text-center relative shadow-[3px_3px_20px_#aaa] sml:p-[10px_10px_40px]">
           <h3 className="font-bold text-[30px] p-5 capitalize text-[#111] big:text-4xl sml:p-4">Enter expense details</h3>
           {showAlert && (
-            <p className={`text-sm p-1 text-center font-sans font-semibold big:text-[30px] big:p-[30px] ${alert ? "text-[#f00] border-2 border-solid border-[#f00]" : "text-[#008000] border-2 border-solid border-[#008000]"}`}>{msg}</p>
+            <p className={`text-sm p-2 text-center font-sans font-semibold big:text-[30px] big:p-[30px] ${alert ? "text-[#f00] border-2 border-solid border-[#f00]" : "text-[#008000] border-2 border-solid border-[#008000]"}`}>{msg}</p>
           )}
           <input className="block w-full h-10 rounded-[30px] m-[20px_auto] text-xl p-[10px_0_10px_5px] border-2 border-solid border-[#aaa] big:block big:w-[95%] big:h-[70px] big:m-[60px_auto] text-[30px] pl-[10px] sml:h-7 sml:text-sml sml:border"
             type="text"

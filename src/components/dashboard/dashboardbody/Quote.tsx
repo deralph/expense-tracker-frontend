@@ -1,5 +1,4 @@
 import React from "react";
-import "./dashboardBody.css";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 interface props{

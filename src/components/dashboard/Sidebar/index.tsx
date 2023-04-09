@@ -1,9 +1,8 @@
 import React from "react";
-import "./sidebar.css";
 import { RiEqualizerLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import { useGlobal } from "../../context/Context";
-import Logo from "../../home/logo/Logo";
+import { useGlobal } from "../../context";
+import Logo from "../../home/logo";
 // import Logout from "../Logout";
 import { logout } from "../../../extras/functions";
 import { MdLogout } from "react-icons/md";

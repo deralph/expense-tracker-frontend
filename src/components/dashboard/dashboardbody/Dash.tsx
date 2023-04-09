@@ -1,5 +1,4 @@
 import React from "react";
-import "./dashboardBody.css";
 
 interface props {
   color: object|any;
@@ -7,7 +6,7 @@ interface props {
   percentage: string;
 }
 
-const Dash = ({ color, name, percentage }: props) => {
+const Dash:React.FC<props> = ({ color, name, percentage }) => {
   return (
     <div className="flex p-1 big:p-6">
       <div className={`w-4 h-4 big:w-10 big:h-10`} style={{background:`${color[name]}`}} />

@@ -1,10 +1,9 @@
 import React from "react";
 import useIcons from "../../extras/useicon";
 import { Link } from "react-router-dom";
-import "./expenses.css";
 import { res } from "../../pages/dashboard";
 
-const Expense = ({ _id, productName, price, category, productNo, date }:res) => {
+const Expense:React.FC<res> = ({ _id, productName, price, category, productNo, date }) => {
   const Date = date!.slice(0, 10);
   return (
     <div className="basis-[45%]" key={_id}>

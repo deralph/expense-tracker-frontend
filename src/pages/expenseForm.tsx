@@ -1,10 +1,10 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { useGlobal } from "../components/context/Context";
-import ExpenseForm from "../components/expenseform/CategoriesForm";
-import Loader from "../components/loading/Loader";
+import { useGlobal } from "../components/context";
+import ExpenseForm from "../components/expenseform";
+import Loader from "../components/loading";
 import Problem from "../extras/Problem";
-const ExpenseForm_ = () => {
+const ExpenseForm_:React.FC = () => {
   const { loading, user, probs } = useGlobal();
   if (probs) {
     return <Problem />;

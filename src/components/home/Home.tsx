@@ -1,12 +1,12 @@
 import React from "react";
-import Consult from "../consult/Consult";
-import About from "./about/About";
-import Body from "./body/Body";
-import Features from "./features/Features";
-import Footer from "./footer/Footer";
-import Record from "./keep_record/LetKeepRecord";
-import Navbar from "./navbar/Navbar";
-import Testimonial from "./testimonials/Testi";
+import Consult from "../consult";
+import About from "./about";
+import Body from "./body";
+import Features from "./features";
+import Footer from "./footer";
+import Record from "./keep_record";
+import Navbar from "./navbar";
+import Testimonial from "./testimonials";
 
 const Home = () => {
   return (

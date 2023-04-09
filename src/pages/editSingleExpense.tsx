@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import ExpenseForm from "../components/expenseform/CategoriesForm";
-import Loader from "../components/loading/Loader";
+import ExpenseForm from "../components/expenseform";
+import Loader from "../components/loading";
 import axios from "../extras/axios";
 import { res } from "./dashboard";
 
-const Edit = () => {
+const Edit:React.FC = () => {
   const { id } = useParams();
   // console.log(id);
   const navigate = useNavigate();

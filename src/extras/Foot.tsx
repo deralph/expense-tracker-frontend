@@ -6,7 +6,6 @@ import {
   FaInstagramSquare,
 } from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs";
-import "./home/footer/footer.css";
 const Foot:React.FC = () => {
   return (
     <div className="flex justify-evenly p-5">

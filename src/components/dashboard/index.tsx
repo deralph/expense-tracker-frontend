@@ -1,7 +1,6 @@
 import React from "react";
-import DashboardBody from "./dashboardbody/DashboardBody";
-import Sidebar from "./Sidebar/Sidebar";
-import "./Dashboard.css";
+import DashboardBody from "./dashboardbody";
+import Sidebar from "./Sidebar";
 import { res } from "../../pages/dashboard";
 
 interface props{

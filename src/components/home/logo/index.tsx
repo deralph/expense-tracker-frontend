@@ -1,6 +1,5 @@
 import React from "react";
 import { AiTwotoneShopping } from "react-icons/ai";
-import "./logo.css";
 const Logo:React.FC = () => {
   return (
     <div>

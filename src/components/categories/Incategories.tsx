@@ -1,5 +1,4 @@
 import React from "react";
-import "./categories.css";
 import { Link } from "react-router-dom";
 import { IconType } from "react-icons/lib";
 

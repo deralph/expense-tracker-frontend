@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "./Card";
-import "./testi.css";
 
 const userData = [
   {
@@ -25,7 +24,7 @@ const userData = [
     name: "samuel olabolorunshaye",
   },
 ];
-const Testi = () => {
+const Testi:React.FC = () => {
   return (
     <section  id="testimonial">
       <h3 className="text-[30px] my-[50px] font-sans text-center relative pb-1 big:my-[100px] big:text-[60px]">Testimonial</h3>

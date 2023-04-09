@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useGlobal } from "../../context/Context";
+import { useGlobal } from "../../context";
 import Expenses from "../../expenses/Expenses";
 import Dash from "./Dash";
-import "./dashboardBody.css";
 import quotes from "../../../extras/quotesDB";
 import { sets, Category_colors } from "../../../extras/functions";
 import useIcons from "../../../extras/useicon";
