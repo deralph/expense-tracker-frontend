@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useGlobal } from "../../context";
+import { allActions } from "../../../store/allSlice";
+import { useAppDispatch } from "../../../hooks";
 
 const LetKeepRecord:React.FC = () => {
-  const { setSignIn } = useGlobal();
-
+  
+  const dispatch = useAppDispatch()
   return (
     <section className="min-h-[300px] my-[100px] relative h-auto flex justify-evenly items-center big:m-[200px_auto] md:flex-col">
       <img
@@ -20,13 +21,13 @@ const LetKeepRecord:React.FC = () => {
         <p className="text-[30px] text-[#333] p-5 font-sans md:text-2xl big:my-[30px] big:text-[50px]">
         Let's keep record of your expenses for you</p>
         <div className="flex justify-evenly pb-[30px]">
-          <button className="text-lg bg-[#96f] text-white p-[10px] w-[100px] cursor-pointer transition-all big:text-[50px] big:p-[20px_50px] big:w-auto hover:bg-[#73f]">
-            <Link to="/signin" onClick={() => setSignIn(true)}>
+          <button className="text-lg bg-primary text-white p-[10px] w-[100px] cursor-pointer transition-all big:text-[50px] big:p-[20px_50px] big:w-auto hover:bg-[#73f]">
+            <Link to="/signin" onClick={() => dispatch(allActions.setSignIn(true))}>
               Log in
             </Link>
           </button>
-          <button className="text-lg bg-[#96f] text-white p-[10px] w-[100px] cursor-pointer transition-all big:text-[50px] big:p-[20px_50px] big:w-auto hover:bg-[#73f]">
-            <Link to="/signin" onClick={() => setSignIn(false)}>
+          <button className="text-lg bg-primary text-white p-[10px] w-[100px] cursor-pointer transition-all big:text-[50px] big:p-[20px_50px] big:w-auto hover:bg-[#73f]">
+            <Link to="/signin" onClick={() => dispatch(allActions.setSignIn(false))}>
               Register
             </Link>
           </button>

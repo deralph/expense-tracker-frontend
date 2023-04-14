@@ -1,24 +1,25 @@
 import React from "react";
 import { RiEqualizerLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import { useGlobal } from "../../context";
 import Logo from "../../home/logo";
 // import Logout from "../Logout";
 import { logout } from "../../../extras/functions";
 import { MdLogout } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../../hooks";
+import { allActions } from "../../../store/allSlice";
 
-interface props{
-  category?:string[]
-  month?:any[]
-  pro?:string
-  setPro?:React.Dispatch<React.SetStateAction<string>>
-  handleCategory?:(opt: string, type: string) => void
-  max?:string|number
-  handleMonth?:(month: string, no: string | number) => void
+interface props {
+  category?: string[]
+  month?: any[]
+  pro?: string
+  setPro?: React.Dispatch<React.SetStateAction<string>>
+  handleCategory?: (opt: string, type: string) => void
+  max?: string | number
+  handleMonth?: (month: string, no: string | number) => void
 }
 
-const Sidebar:React.FC<props> = ({
+const Sidebar: React.FC<props> = ({
   category,
   month,
   pro,
@@ -27,20 +28,21 @@ const Sidebar:React.FC<props> = ({
   max,
   handleMonth,
 }) => {
-  const { sidebar, setuser } = useGlobal();
+  const { sidebar } = useAppSelector(state => state.all)
+  const dispatch = useAppDispatch()
   const navigate = useNavigate();
 
   const subject =
     "Hi \n I am ________ \n I am writting to you in subject to the website https://expense-tracked.netlify.app \n I would love to seek financial advice towards ______, \n Thanks";
   return (
     // <aside className={`sidebar ${sidebar &&'show'}`}>
-    <aside className={`nin-w-[250px] bg-[#93f] min-h-[100vh] h-auto p-5 fixed w-[20vw] left-0 top-0 block transition-all overflow-auto big:w-[25vw] sml:-left-[120%] z-[100] overflow-y-scroll ${sidebar &&'sml:left-0 transition-all'}`}>
+    <aside className={`nin-w-[250px] bg-[#93f] min-h-[100vh] h-auto p-5 fixed w-[20vw] left-0 top-0 block transition-all overflow-auto big:w-[25vw] sml:-left-[120%] z-[100] overflow-y-scroll ${sidebar && 'sml:left-0 transition-all'}`}>
       {" "}
       {!category ? (
         <>
           <ul className="mt-[50px]">
             <div className="mb-[30px]">
-            <Logo  />
+              <Logo />
             </div>
             <Link to="/categories">
               {" "}
@@ -59,16 +61,19 @@ const Sidebar:React.FC<props> = ({
               <li className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >Seek Financial Advice</li>
             </a>
           </ul>
-          <p className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans sticky flex items-center cursor-pointer hover:text-[#bbb] hover:underline  big:text-4xl big:p-5" onClick={() => logout(navigate, setuser)}>
+          <p className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans sticky flex items-center cursor-pointer hover:text-[#bbb] hover:underline  big:text-4xl big:p-5" onClick={() => {
+            dispatch(allActions.setuser(''))
+            logout(navigate)
+          }}>
             Log Out
-            <MdLogout className="ml-[10px]"/>
+            <MdLogout className="ml-[10px]" />
           </p>
         </>
       ) : (
         <>
-        <div  className="pb-[100px]">
-          <Logo  />
-        </div>
+          <div className="pb-[100px]">
+            <Logo />
+          </div>
           <h3 className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans text-center p-1 big:text--[50px] mt-[50px]">
             <RiEqualizerLine className="pt-5 pr-[10px] pl-5" />
             filter by:
@@ -79,7 +84,7 @@ const Sidebar:React.FC<props> = ({
             {category.map((option, index) => {
               return (
                 <li
-                className="cursor-pointer text-[#aaa] font-sans p-1 font-semibold big:text-4xl big:p-5"
+                  className="cursor-pointer text-[#aaa] font-sans p-1 font-semibold big:text-4xl big:p-5"
                   onClick={() => handleCategory!(option, "category")}
                   key={index}
                 >
@@ -114,9 +119,12 @@ const Sidebar:React.FC<props> = ({
             className="py-1"
           />
           <p className="text-[#aaa] p-1 font-sans font-semibold  big:text-4xl big:p-5">{pro}</p>
-          <p className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans sticky flex items-center cursor-pointer hover:text-[#bbb] hover:underline  big:text-4xl big:p-5" onClick={() => logout(navigate, setuser)}>
+          <p className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans sticky flex items-center cursor-pointer hover:text-[#bbb] hover:underline  big:text-4xl big:p-5" onClick={() => {
+            dispatch(allActions.setuser(''))
+            logout(navigate)
+          }}>
             Log Out
-            <MdLogout className="ml-[10px]"/>
+            <MdLogout className="ml-[10px]" />
           </p>
         </>
       )}

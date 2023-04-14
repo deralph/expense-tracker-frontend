@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useGlobal } from "../../context";
 import Expenses from "../../expenses/Expenses";
 import Dash from "./Dash";
 import quotes from "../../../extras/quotesDB";
@@ -11,6 +10,8 @@ import { Link } from "react-router-dom";
 import { reduceFunction } from "../../../extras/functions";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
+import { useAppDispatch, useAppSelector } from "../../../hooks";
+import { allActions } from "../../../store/allSlice";
 
 interface props {
   result: Array<any>;
@@ -18,7 +19,9 @@ interface props {
 }
 
 const DashboardBody: React.FC<props> = ({ result, user }) => {
-  const { sidebar, setSidebar } = useGlobal();
+  const {sidebar} = useAppSelector(state => state.all)
+  const dispatch = useAppDispatch()
+  // const { sidebar, setSidebar } = useGlobal();
   const [presentQuote, setPresentQuote] = useState(0);
 
   const randomNum = useCallback(() => {
@@ -114,12 +117,12 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
           <FaTimes
             className="hidden sml:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px]"
             style={{ color: "#fff" }}
-            onClick={() => setSidebar(!sidebar)}
-          />
-        ) : (
-          <GiHamburgerMenu
-            className="hidden sml:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px]"
-            onClick={() => setSidebar(!sidebar)}
+            onClick={() => dispatch(allActions.setSidebar(!sidebar))}
+            />
+            ) : (
+              <GiHamburgerMenu
+              className="hidden sml:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px]"
+              onClick={() => dispatch(allActions.setSidebar(!sidebar))}
           />
         )}
         <p className="text-center text-[30px] capitalize font-bold big:text-[50px] slg:mt-30 slg:text-xl sm:text-base">welcome {user}</p>
@@ -129,7 +132,7 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
         />
         <article className="flex justify-evenly items-start slg:flex-col slg:items-center slg:w-full">
           {/* <div className="total-card"> */}
-          <div className="p-6 rounded w-auto flex items-center justify-between h-[150px] border-solid border-4 border-[#96f] big:p-10 big:w-[20vw] big:h-auto lg:p-1">
+          <div className="p-6 rounded w-auto flex items-center justify-between h-[150px] border-solid border-4 border-primary big:p-10 big:w-[20vw] big:h-auto lg:p-1">
             <p className="font-medium text-xl big:text-[50px]">
               <span className="tracking-[3px] text-2xl pb-3 flex font-semibold big:text-4xl">
                 <img
@@ -142,7 +145,7 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
               spent
             </p>
             <Link to="/expense">
-              <button className="bg-white p-1 rounded-[20px] font-medium w-24 text-base border-2 border-solid border-[#96f] transition-all hover:bg-[#96f] hover:text-white big:text-4xl big:py-5 big:px-12 big:w-auto ">See List</button>
+              <button className="bg-white p-1 rounded-[20px] font-medium w-24 text-base border-2 border-solid border-primary transition-all hover:bg-primary hover:text-white big:text-4xl big:py-5 big:px-12 big:w-auto ">See List</button>
             </Link>
           </div>
           <div className="line-place">

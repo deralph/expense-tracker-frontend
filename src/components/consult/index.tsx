@@ -2,48 +2,42 @@ import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
 import Back from "../../extras/Back";
+import axios from "../../extras/axios";
 
 const Consult:React.FC<{back?:boolean}> = ({ back }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  interface input{
+    name:string
+    email:string
+  }
+  const [inputs,setInputs]= useState<input>({
+    name:'',email:''
+  });
   const [message, setMessage] = useState("");
   const [loading, setloading] = useState(false);
   const navigate = useNavigate();
-  const form = useRef<null | HTMLFormElement>(null);
-  const sendEmail = (e:React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = async(e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const regex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    if (name.trim() === "" || email.trim() === "") {
+    if (inputs.name.trim() === "" || inputs.email.trim() === "") {
       setMessage("please enter all inputs");
-    } else if (regex.test(email) === false) {
+    } else if (regex.test(inputs.email) === false) {
       setMessage("incorrect email");
-    } else if (name && email) {
-      emailjs
-        .sendForm(
-          "service_ebwtn3v",
-          "template_usrzu3v",
-          form.current!,
-          "AaNuDTP5U8DXfAUhh"
-        )
-        .then(
-          (result) => {
-            // console.log(result.text);
-            setMessage("Sent Sucessfully");
-            setloading(true);
-            setEmail("");
-            setName("");
-            setTimeout(() => {
-              setMessage("");
-            }, 5000);
-            navigate("/dashboard");
-          },
-          (error) => {
-            // console.log(error.text);
-            setMessage("Failed to send. Try again later");
-          }
-        );
+    } else if (inputs.name && inputs.email) {
+      try {
+        
+        const {data}= await axios.post('sendmail',inputs)
+        if(data){
+          setMessage('maill delivered sucessully')
+        }
+      } catch (error) {
+        console.log(error)
+        setMessage('an error occured try again later')
+        setInputs({
+          name:'',email:''
+        })
+      }
     }
   };
 
@@ -59,31 +53,30 @@ const Consult:React.FC<{back?:boolean}> = ({ back }) => {
             We Will Get To You
           </p>
         </div>
-        <div className="big:w-[600px] big:h-[600px] sm:h-[250px] md:h-[300px] bg-[#96f] w-[400px] h-[400px] md:w-full rounded-[50%] grid place-content-center p-5 md:bg-transparent">
+        <div className="big:w-[600px] big:h-[600px] sm:h-[250px] md:h-[300px] bg-primary w-[400px] h-[400px] md:w-full rounded-[50%] grid place-content-center p-5 md:bg-transparent">
           <form
             action=""
             className="big:h-auto big:w-auto md:w-full bg-[#eee] p-7 w-[300px] relative"
             onSubmit={(e)=>sendEmail(e)}
             name="form"
-            ref={form}
           >
-            {message && <p>{message}</p>}
+            {message && <p className="text-center text-green-600 font-semibold">{message}</p>}
             <input
               type="text"
               name="name"
               id="name"
-              value={name}
+              value={inputs.name}
               placeholder="Your Name"
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setInputs({...inputs,name:e.target.value})}
               className="h-auto bg-[#ddd] w-full p-2 big:h-10 big:p-4 big:w-[500px] big:text-3xl mt-7 mb-5"
               />
             <input
               type="email"
               name="email"
               id="email"
-              value={email}
+              value={inputs.email}
+              onChange={(e) => setInputs({...inputs,email:e.target.value})}
               placeholder="Your Email"
-              onChange={(e) => setEmail(e.target.value)}
               className=" bg-[#ddd] w-full p-2 big:h-10 big:p-4 big:w-[500px] big:text-3xl mt-3 mb-5"
             />
             <div style={{ display: "flex", justifyContent: "center" }}>

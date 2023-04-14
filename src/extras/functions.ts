@@ -72,12 +72,10 @@ export const reduceFunction = (group: any[]) => {
   return percent;
 };
 
-export const logout = async (navigate: Function, setuser: Function) => {
+export const logout = async (navigate: Function) => {
   // e.preventDefault();
   try {
      await axios.get("auth/logout");
-    // console.log(data);
-    setuser("");
     navigate("/signin");
   } catch (error) {
     console.log(error);

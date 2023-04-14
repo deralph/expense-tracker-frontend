@@ -7,12 +7,7 @@ module.exports = {
         landback: "url('/../../public/Background.jpg')",
       },
       colors: {
-        primary: "#0A0E27",
-        secondary: "#07174b",
-        // secondary: {
-        //   100: "#E2E2D5",
-        //   200: "#888883",
-        // },
+        primary: "#96f"
       },
       spacing: {
         init: "1em",

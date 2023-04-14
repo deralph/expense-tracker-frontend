@@ -13,7 +13,7 @@ const Foot:React.FC = () => {
       <ul className="flex">
         <li>
           {" "}
-          <a className="pl-[10px] text-xl text-[#96f] big:text-[50px]"
+          <a className="pl-[10px] text-xl text-primary big:text-[50px]"
             href="https://www.facebook.com/profile.php?id=100007056585591"
             target="_blank"
             rel="noreferrer"
@@ -24,7 +24,7 @@ const Foot:React.FC = () => {
         </li>
         <li>
           {" "}
-          <a className="pl-[10px] text-xl text-[#96f] big:text-[50px]"
+          <a className="pl-[10px] text-xl text-primary big:text-[50px]"
             href="https://twitter.com/DeRalph15?t=KLXOXWSRgyfr6a98aA_WSQ&s=09"
             target="_blank"
             rel="noreferrer"
@@ -34,7 +34,7 @@ const Foot:React.FC = () => {
           </a>
         </li>
         <li>
-          <a className="pl-[10px] text-xl text-[#96f] big:text-[50px]"
+          <a className="pl-[10px] text-xl text-primary big:text-[50px]"
             href="https://wa.me/message/QHR4IAXUJC55J1"
             target="_blank"
             rel="noreferrer"
@@ -44,7 +44,7 @@ const Foot:React.FC = () => {
           </a>
         </li>
         <li>
-          <a className="pl-[10px] text-xl text-[#96f] big:text-[50px]"
+          <a className="pl-[10px] text-xl text-primary big:text-[50px]"
             href="https://www.instagram.com/iam_raphael15/"
             target="_blank"
             rel="noreferrer"
@@ -54,7 +54,7 @@ const Foot:React.FC = () => {
           </a>
         </li>
         <li>
-          <a className="pl-[10px] text-xl text-[#96f] big:text-[50px]"
+          <a className="pl-[10px] text-xl text-primary big:text-[50px]"
             href="https://www.linkedin.com/in/john-raphael-81226522a"
             target="_blank"
             rel="noreferrer"

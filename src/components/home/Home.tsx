@@ -8,7 +8,7 @@ import Record from "./keep_record";
 import Navbar from "./navbar";
 import Testimonial from "./testimonials";
 
-const Home = () => {
+const Home:React.FC = () => {
   return (
     <>
       <Navbar />

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { useGlobal } from "../context";
 
 const Reset:React.FC = () => {
-  // const { resetPassword } = useGlobal();
   const [email, setEmail] = useState("");
 
   const [alert, setAlert] = useState(false);
@@ -40,7 +38,7 @@ const Reset:React.FC = () => {
 
   return (
     <section className="grid place-content-center relative h-[100vh] min-h-[650px] big:h-auto big:min-h-[100vh]">
-      <div className="sabsolute top-0 h-[60vh] w-full bg-[#96f] -z-[1] rounded-b-[50px]" />
+      <div className="sabsolute top-0 h-[60vh] w-full bg-primary -z-[1] rounded-b-[50px]" />
       <article className="w-[90vw] max-w-[520px] big:max-w-[60vw]">
         <form
           action=""
@@ -69,7 +67,7 @@ const Reset:React.FC = () => {
           />
 
           <button
-            className="bg-[#96f] text-white py-4 px-10 text-[1.2rem] font-bold rounded-[30px] absolute -bottom-[20px] left-[50%] -translate-x-[50%] w-[200px] cursor-pointer disabled:bg-[#a091be] big:p-[30px_80px] big:text-[3rem] big:w-auto big:-bottom-[60px] big:rounded-[50px]"
+            className="bg-primary text-white py-4 px-10 text-[1.2rem] font-bold rounded-[30px] absolute -bottom-[20px] left-[50%] -translate-x-[50%] w-[200px] cursor-pointer disabled:bg-[#a091be] big:p-[30px_80px] big:text-[3rem] big:w-auto big:-bottom-[60px] big:rounded-[50px]"
             onClick={(e) => controlSubmit(e)}
             disabled={loading}
           >

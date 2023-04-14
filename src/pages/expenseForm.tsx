@@ -1,11 +1,12 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { useGlobal } from "../components/context";
 import ExpenseForm from "../components/expenseform";
 import Loader from "../components/loading";
 import Problem from "../extras/Problem";
+import { useAppSelector } from "../hooks";
+
 const ExpenseForm_:React.FC = () => {
-  const { loading, user, probs } = useGlobal();
+  const {loading, user, probs} = useAppSelector(state => state.all)
   if (probs) {
     return <Problem />;
   }

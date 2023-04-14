@@ -52,7 +52,7 @@ const SingleExpense:React.FC = () => {
           <Loader />
         ) : (
           <>
-            <section className="font-sans max-w-[500px] w-full bg-[#eee] border-solid border-[#96f] border-[5px]" >
+            <section className="font-sans max-w-[500px] w-full bg-[#eee] border-solid border-primary border-[5px]" >
               <div
                 style={{
                   display: "flex",

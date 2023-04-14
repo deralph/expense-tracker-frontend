@@ -1,12 +1,13 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { useGlobal } from "../components/context";
 import Loader from "../components/loading";
 import SignInNow from "../components/Sign in";
 import Problem from "../extras/Problem";
+import { useAppSelector } from "../hooks";
 
 const SignIn:React.FC = () => {
-  const { loading, user, probs } = useGlobal();
+  const {loading, user, probs} = useAppSelector(state => state.all)
+
   if (probs) {
     return <Problem />;
   }

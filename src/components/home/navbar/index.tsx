@@ -1,43 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useGlobal } from "../../context";
 import Logo from "../logo";
 import { FaUserAlt } from "react-icons/fa";
+import { allActions } from "../../../store/allSlice";
+import { useAppDispatch } from "../../../hooks";
 
 const Navbar:React.FC = () => {
-  const { setSignIn } = useGlobal();
+  const dispatch = useAppDispatch()
   return (
-    <nav className="p-[10px_5%] text-[#333] flex justify-between items-center font-sans fixed top-0 w-full bg-[#96f] z-[100] transition-all big:p-[40px_8%]">
+    <nav className="p-[10px_5%] text-[#333] flex justify-between items-center font-sans fixed top-0 w-full bg-primary z-[100] transition-all big:p-[40px_8%]">
       <Logo />
       <ul className="inline-flex sml:hidden">
         <li>
-          <a className="text-lg p-[10px] cursor-pointer big:text-4xl big:p-5 sm:text-xs sm:p-1 "
+          <a className="text-lg p-[10px] text-white cursor-pointer big:text-4xl big:p-5 sm:text-xs sm:p-1 "
             href="#about"
-            style={{ color: "white" }}
           >
             About
           </a>
         </li>
         <li>
-          <a className="text-lg p-[10px] cursor-pointer big:text-4xl big:p-5 sm:text-xs sm:p-1 "
+          <a className="text-lg p-[10px] text-white cursor-pointer big:text-4xl big:p-5 sm:text-xs sm:p-1 "
             href="#features"
-            style={{ color: "white" }}
           >
             Features
           </a>
         </li>
         <li>
-          <a className="text-lg p-[10px] cursor-pointer big:text-4xl big:p-5 sm:text-xs sm:p-1 "
+          <a className="text-lg p-[10px] text-white cursor-pointer big:text-4xl big:p-5 sm:text-xs sm:p-1 "
             href="#testimonial"
-            style={{ color: "white" }}
           >
             testimonials
           </a>
         </li>
         <li>
-          <a className="text-lg p-[10px] cursor-pointer big:text-4xl big:p-5 sm:text-xs sm:p-1 "
+          <a className="text-lg text-white p-[10px] cursor-pointer big:text-4xl big:p-5 sm:text-xs sm:p-1 "
             href="#contact"
-            style={{ color: "white" }}
           >
             contact
           </a>
@@ -50,8 +47,8 @@ const Navbar:React.FC = () => {
           <li className="p-[6px] border border-solid border-[#5e5c5c80]">
             <Link
               to="/signin"
-              onClick={() => setSignIn(false)}
-              style={{ color: "#f1f1f1", fontSize: '15px' }}
+              onClick={() => dispatch(allActions.setSignIn(false))}
+              className="text-[#f1f1f1] text-base"
             >
               Login
             </Link>
@@ -59,8 +56,8 @@ const Navbar:React.FC = () => {
           <li className="p-[6px]">
             <Link
               to="/signin"
-              onClick={() => setSignIn(false)}
-              style={{ color: "#f1f1f1", fontSize: '15px' }}
+              onClick={() => dispatch(allActions.setSignIn(false))}
+              className="text-[#f1f1f1] text-base"
             >
               Register
             </Link>

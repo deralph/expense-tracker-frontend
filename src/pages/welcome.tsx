@@ -1,12 +1,12 @@
 import React from "react";
-import { useGlobal } from "../components/context";
 import Welcome from "../components/welcome";
 import Loader from "../components/loading";
 import { Navigate } from "react-router-dom";
 import Problem from "../extras/Problem";
+import { useAppSelector } from "../hooks";
 
 const Welcome_:React.FC = () => {
-  const { loading, user, probs } = useGlobal();
+  const {loading, user, probs} = useAppSelector(state => state.all)
   if (probs) {
     return <Problem />;
   }

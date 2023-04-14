@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useGlobal } from "../context";
 import Sidebar from "../dashboard/Sidebar";
 import Expenses from "./Expenses";
 import { sets, getMonth } from "../../extras/functions";
@@ -8,13 +7,16 @@ import { reduceFunction } from "../../extras/functions";
 import { res } from "../../pages/dashboard";
 import { FaTimes } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { allActions } from "../../store/allSlice";
 
 interface props {
   result: res[];
 }
 
 const AllCategories:React.FC<props> = ({ result }) => {
-  const { sidebar, setSidebar } = useGlobal();
+  const { sidebar } = useAppSelector(state => state.all)
+  const dispatch = useAppDispatch()
   const [pro, setPro] = useState<string>("");
 
   const [datas, setDatas] = useState<res[]>(result);
@@ -65,12 +67,12 @@ const AllCategories:React.FC<props> = ({ result }) => {
       {sidebar ? (
           <FaTimes
             className="hidden sml:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px] text-white"
-            onClick={() => setSidebar(!sidebar)}
+            onClick={() => dispatch(allActions.setSidebar(!sidebar))}
           />
         ) : (
           <GiHamburgerMenu
             className="hidden sml:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px]"
-            onClick={() => setSidebar(!sidebar)}
+            onClick={() => dispatch(allActions.setSidebar(!sidebar))}
           />
         )}
       <div className="dashboard">

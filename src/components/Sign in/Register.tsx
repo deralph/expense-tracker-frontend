@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useGlobal } from "../context";
 import axios from "../../extras/axios";
+import { allActions } from "../../store/allSlice";
+import { useAppDispatch } from "../../hooks";
 
 const Register:React.FC = () => {
-  const { setSignIn, setuser } = useGlobal();
+  const dispatch = useAppDispatch()
   const navigate = useNavigate();
   const [form, setForm] = useState({
     fullname: "",
@@ -49,7 +50,7 @@ const Register:React.FC = () => {
 
         // console.log(data);
         setMsg("submitted sucessfully");
-        setuser(data.username);
+        dispatch(allActions.setuser(data.username));
 
         navigate("/welcome");
       } catch (error) {
@@ -76,7 +77,7 @@ const Register:React.FC = () => {
         <h3 className="font-bold text-[30px] p-5 capitalize text-[#111] big:text-4xl sml:p-4">Register</h3>
         <p className="text-sm p-3 text-center font-sans font-semibold big:text-[30px] big:p-[30px]">if you don't have an account</p>
         {msg && <p className={`text-sm p-2 text-center font-sans font-semibold big:text-[30px] big:p-[30px] ${alert ? "text-[#f00] border-2 border-solid border-[#f00]" : "text-[#008000] border-2 border-solid border-[#008000]"}`}>{msg}</p>}
-        <input className="block w-full h-10 rounded-[30px] m-[20px_auto] text-xl p-[10px_0_10px_5px] border-2 border-solid border-[#aaa] big:block big:w-[95%] big:h-[70px] big:m-[60px_auto] text-[30px] pl-[10px] sml:h-7 sml:text-sml sml:border"
+        <input className="block w-full h-10 rounded-[30px] m-[20px_auto] text-sm p-[10px_0_10px_5px] border-2 border-solid border-[#aaa] big:block big:w-[95%] big:h-[70px] big:m-[60px_auto] text-[30px] pl-[10px] sml:h-7 sml:text-sml sml:border"
           type="email"
           name="fullname"
           id="fullname"
@@ -85,7 +86,7 @@ const Register:React.FC = () => {
           onChange={(e)=>handleForm(e)}
           required
         />
-          <input className="block w-full h-10 rounded-[30px] m-[20px_auto] text-xl p-[10px_0_10px_5px] border-2 border-solid border-[#aaa] big:block big:w-[95%] big:h-[70px] big:m-[60px_auto] text-[30px] pl-[10px] sml:h-7 sml:text-sml sml:border"
+          <input className="block w-full h-10 rounded-[30px] m-[20px_auto] text-sm p-[10px_0_10px_5px] border-2 border-solid border-[#aaa] big:block big:w-[95%] big:h-[70px] big:m-[60px_auto] text-[30px] pl-[10px] sml:h-7 sml:text-sml sml:border"
           type="email"
           value={form.email}
           name="email"
@@ -94,7 +95,7 @@ const Register:React.FC = () => {
           onChange={(e)=>handleForm(e)}
           required
         />
-          <input className="block w-full h-10 rounded-[30px] m-[20px_auto] text-xl p-[10px_0_10px_5px] border-2 border-solid border-[#aaa] big:block big:w-[95%] big:h-[70px] big:m-[60px_auto] text-[30px] pl-[10px] sml:h-7 sml:text-sml sml:border"
+          <input className="block w-full h-10 rounded-[30px] m-[20px_auto] text-sm p-[10px_0_10px_5px] border-2 border-solid border-[#aaa] big:block big:w-[95%] big:h-[70px] big:m-[60px_auto] text-[30px] pl-[10px] sml:h-7 sml:text-sml sml:border"
           type="password"
           value={form.password}
           id="password"
@@ -103,7 +104,7 @@ const Register:React.FC = () => {
           onChange={(e)=>handleForm(e)}
           required
         />
-          <input className="block w-full h-10 rounded-[30px] m-[20px_auto] text-xl p-[10px_0_10px_5px] border-2 border-solid border-[#aaa] big:block big:w-[95%] big:h-[70px] big:m-[60px_auto] text-[30px] pl-[10px] sml:h-7 sml:text-sml sml:border"
+          <input className="block w-full h-10 rounded-[30px] m-[20px_auto] text-sm p-[10px_0_10px_5px] border-2 border-solid border-[#aaa] big:block big:w-[95%] big:h-[70px] big:m-[60px_auto] text-[30px] pl-[10px] sml:h-7 sml:text-sml sml:border"
           type="password"
           value={form.confirmPass}
           id="comfirmPass"
@@ -112,12 +113,12 @@ const Register:React.FC = () => {
           onChange={(e)=>handleForm(e)}
           required
         />
-        <button className="bg-[#96f] text-white py-4 px-10 text-[1.2rem] font-bold rounded-[30px] absolute -bottom-[20px] left-[50%] -translate-x-[50%] w-[200px] cursor-pointer disabled:bg-[#a091be] big:p-[30px_80px] big:text-[3rem] big:w-auto big:-bottom-[60px] big:rounded-[50px]" onClick={(e)=>controlSubmit(e)} disabled={loading}>
+        <button className="bg-primary text-white py-4 px-10 text-[1.2rem] font-bold rounded-[30px] absolute -bottom-[20px] left-[50%] -translate-x-[50%] w-[200px] cursor-pointer disabled:bg-[#a091be] big:p-[30px_80px] big:text-[3rem] big:w-auto big:-bottom-[60px] big:rounded-[50px]" onClick={(e)=>controlSubmit(e)} disabled={loading}>
           Register
         </button>
       </form>
       <footer className="text-base font-extrabold text-center mt-[50px] capitalize">
-        already a user? <span onClick={() => setSignIn(true)} className="text-[#ffa500] font-bold underline cursor-pointer big:text-4xl big:mt-20">sign in </span>
+        already a user? <span onClick={() => dispatch(allActions.setSignIn(true))} className="text-[#ffa500] font-bold underline cursor-pointer big:text-4xl big:mt-20">sign in </span>
       </footer>
     </article>
   );
