@@ -1,5 +1,4 @@
-import React, { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Back from "../../extras/Back";
 import axios from "../../extras/axios";
@@ -14,7 +13,6 @@ const Consult:React.FC<{back?:boolean}> = ({ back }) => {
   });
   const [message, setMessage] = useState("");
   const [loading, setloading] = useState(false);
-  const navigate = useNavigate();
   const sendEmail = async(e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const regex =

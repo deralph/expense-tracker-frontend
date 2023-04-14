@@ -57,6 +57,9 @@ const Sidebar: React.FC<props> = ({
             <Link to="/consultation">
               <li className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >Book Consultation</li>
             </Link>
+            <Link to="/chatRoom">
+              <li className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >Chatroom</li>
+            </Link>
             <a href={`mailto:deralph73@gmail.com?subject=${subject}`}>
               <li className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >Seek Financial Advice</li>
             </a>

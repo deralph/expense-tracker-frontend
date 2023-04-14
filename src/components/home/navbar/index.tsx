@@ -47,7 +47,7 @@ const Navbar:React.FC = () => {
           <li className="p-[6px] border border-solid border-[#5e5c5c80]">
             <Link
               to="/signin"
-              onClick={() => dispatch(allActions.setSignIn(false))}
+              onClick={() => dispatch(allActions.setSignIn(true))}
               className="text-[#f1f1f1] text-base"
             >
               Login
