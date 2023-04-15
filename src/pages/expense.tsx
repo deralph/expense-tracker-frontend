@@ -9,12 +9,13 @@ const Expense_:React.FC = () => {
   const navigate = useNavigate();
   const [result, setResult] = useState<res[]>([]);
   const [problem, setProblem] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const fetcher = useCallback(async () => {
     try {
       const { data } = await axios.get("expenses");
       setResult(data.expenses);
-      // console.log("in");
+      setLoading(false);
     } catch (error:any) {
       // console.log(error);
       if (error.response.status === 401) navigate("/signin");
@@ -34,7 +35,7 @@ const Expense_:React.FC = () => {
   }
   return (
     <section>
-      {!result ? (
+      {loading ? (
         <Loader />
       ) : result.length < 1 ? (
         <Navigate to="/welcome" />

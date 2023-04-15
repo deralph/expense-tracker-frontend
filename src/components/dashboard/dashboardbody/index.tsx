@@ -110,22 +110,22 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
 
   return (
     // <section className={sidebar ? "dashboard-body overflow" : "dashboard-body"}>
-    <section className={`sml:p-0 ${sidebar &&'overflow-hidden max-h-[100vh]'}`}>
+    <section className={`sml:p-0 ml-[20vw] ml-[250px] md:ml-0 mb-10 ${sidebar &&'overflow-hidden max-h-[100vh]'}`}>
       <>
         {" "}
         {sidebar ? (
           <FaTimes
-            className="hidden sml:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px]"
+            className="hidden md:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px]"
             style={{ color: "#fff" }}
             onClick={() => dispatch(allActions.setSidebar(!sidebar))}
             />
             ) : (
               <GiHamburgerMenu
-              className="hidden sml:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px]"
+              className="hidden md:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px]"
               onClick={() => dispatch(allActions.setSidebar(!sidebar))}
           />
         )}
-        <p className="text-center text-[30px] capitalize font-bold big:text-[50px] slg:mt-30 slg:text-xl sm:text-base">welcome {user}</p>
+        <p className="text-center text-[30px] capitalize font-bold big:text-[50px] slg:mt-30 slg:text-xl sm:text-base mt-10">welcome {user}</p>
         <Quote
           quote={quotes[presentQuote].quote}
           author={quotes[presentQuote].author}
@@ -134,11 +134,11 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
           {/* <div className="total-card"> */}
           <div className="p-6 rounded w-auto flex items-center justify-between h-[150px] border-solid border-4 border-primary big:p-10 big:w-[20vw] big:h-auto lg:p-1">
             <p className="font-medium text-xl big:text-[50px]">
-              <span className="tracking-[3px] text-2xl pb-3 flex font-semibold big:text-4xl">
+              <span className="tracking-[3px] text-xl pb-3 flex items-center font-semibold big:text-3xl">
                 <img
                   src="images/naira.png"
                   alt="naira symbol"
-                  className="naira"
+                  className=" w-8 object-contain"
                 />
                 {total_Expense}
               </span>{" "}
@@ -170,7 +170,7 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
         <Expenses data={data} type="Latest Expense" seeall />
         <div className="dash-top">
           <h3 className="text-center relative text-[30px] pt-5 pb-[10px] big:text-6xl">Top Categories</h3>
-          <div className="grid place-content-center grid-cols-2 sml:flex sml:flex-wrap ">
+          <div className="flex justify-evenly items-center sml:flex sml:flex-wrap mt-8">
             {alimi.map((category, index) => {
               return <Incategories {...category} key={index} />;
             })}

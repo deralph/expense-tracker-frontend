@@ -20,19 +20,24 @@ const Dashboard_:React.FC= () => {
   const [result, setResult] = useState<res[]>([]);
   const [user, setuser] = useState('');
   const [problem, setProblem] = useState(false);
+  const [loading, setLoading] = useState(true);
+
 
   const fetcher = useCallback(async () => {
     try {
       const { data } = await axios.get("expenses");
       setResult(data.expenses);
       setuser(data.user);
+      setLoading(false)
       // console.log("in");
     } catch (error:any) {
       // console.log(error);
       if (error.response.status === 401) navigate("/signin");
       setProblem(true);
+      setLoading(false)
     }
   }, [navigate]);
+
   useEffect(() => {
     fetcher();
   }, [fetcher]);
@@ -45,14 +50,12 @@ const Dashboard_:React.FC= () => {
   }
   return (
     <section>
-      {result ? (
+      {loading ?<Loader/>: (
         result.length < 1 ? (
           <Navigate to="/welcome" />
         ) : (
           <Dashboard result={result} user={user} />
         )
-      ) : (
-        <Loader />
       )}
     </section>
   );

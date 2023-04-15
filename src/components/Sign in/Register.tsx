@@ -54,8 +54,6 @@ const Register:React.FC = () => {
 
         navigate("/welcome");
       } catch (error) {
-        // console.log(error);
-        // console.log("unable to submit user");
         setAlert(true);
         setMsg("unable to create user. Try again later");
       }

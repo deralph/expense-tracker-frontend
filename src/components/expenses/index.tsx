@@ -66,12 +66,12 @@ const AllCategories:React.FC<props> = ({ result }) => {
       
       {sidebar ? (
           <FaTimes
-            className="hidden sml:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px] text-white"
+            className="hidden md:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px] text-white"
             onClick={() => dispatch(allActions.setSidebar(!sidebar))}
           />
         ) : (
           <GiHamburgerMenu
-            className="hidden sml:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px]"
+            className="hidden md:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px]"
             onClick={() => dispatch(allActions.setSidebar(!sidebar))}
           />
         )}
@@ -86,7 +86,7 @@ const AllCategories:React.FC<props> = ({ result }) => {
           max={max}
           handleMonth={handleMonth}
         />
-        <div className={`all-side ${sidebar && 'overflow-hidden max-h-[100vh]'}`}>
+        <div className={`md:ml-0 lg:ml-[30vw] ml-[20vw] mt-10 ${sidebar && 'overflow-hidden max-h-[100vh]'}`}>
           <p className="text-center text-2xl font-sans font-bold big:text-[50px]">Total : {reduceFunction(datas)}</p>
           <Expenses data={datas} type="Expenses" />{" "}
         </div>

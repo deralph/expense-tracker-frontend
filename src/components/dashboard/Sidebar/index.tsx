@@ -36,7 +36,7 @@ const Sidebar: React.FC<props> = ({
     "Hi \n I am ________ \n I am writting to you in subject to the website https://expense-tracked.netlify.app \n I would love to seek financial advice towards ______, \n Thanks";
   return (
     // <aside className={`sidebar ${sidebar &&'show'}`}>
-    <aside className={`nin-w-[250px] bg-[#93f] min-h-[100vh] h-auto p-5 fixed w-[20vw] left-0 top-0 block transition-all overflow-auto big:w-[25vw] sml:-left-[120%] z-[100] overflow-y-scroll ${sidebar && 'sml:left-0 transition-all'}`}>
+    <aside className={`min-w-[250px] hide bg-[#93f] min-h-[100vh] h-auto p-5 fixed w-[20vw] left-0 top-0 block transition-all overflow-auto big:w-[25vw] md:-left-[120%] z-[100] overflow-y-scroll ${sidebar && 'md:left-0 transition-all'}`}>
       {" "}
       {!category ? (
         <>
@@ -46,25 +46,25 @@ const Sidebar: React.FC<props> = ({
             </div>
             <Link to="/categories">
               {" "}
-              <li className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >View Categories</li>
+              <li className="py-3 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >View Categories</li>
             </Link>
             <Link to="/expense">
-              <li className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >All Expenses</li>
+              <li className="py-3 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >All Expenses</li>
             </Link>
             <Link to="/expense-form">
-              <li className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >Add Expenses</li>
+              <li className="py-3 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >Add Expenses</li>
             </Link>
             <Link to="/consultation">
-              <li className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >Book Consultation</li>
+              <li className="py-3 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >Book Consultation</li>
             </Link>
-            <Link to="/chatRoom">
-              <li className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >Chatroom</li>
+            <Link to="/chatroom">
+              <li className="py-3 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >Chatroom</li>
             </Link>
             <a href={`mailto:deralph73@gmail.com?subject=${subject}`}>
-              <li className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >Seek Financial Advice</li>
+              <li className="py-3 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px]" >Seek Financial Advice</li>
             </a>
           </ul>
-          <p className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans sticky flex items-center cursor-pointer hover:text-[#bbb] hover:underline  big:text-4xl big:p-5" onClick={() => {
+          <p className="py-3 px-4 text-lg font-medium text-[#ddd] font-sans sticky flex items-center cursor-pointer hover:text-[#bbb] hover:underline  big:text-4xl big:p-5" onClick={() => {
             dispatch(allActions.setuser(''))
             logout(navigate)
           }}>
@@ -77,12 +77,12 @@ const Sidebar: React.FC<props> = ({
           <div className="pb-[100px]">
             <Logo />
           </div>
-          <h3 className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans text-center p-1 big:text--[50px] mt-[50px]">
+          <h3 className="py-3 px-4 text-lg font-medium text-[#ddd] font-sans text-center p-1 big:text--[50px] mt-[50px]">
             <RiEqualizerLine className="pt-5 pr-[10px] pl-5" />
             filter by:
           </h3>
           {/* side ul */}
-          <ul className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px] my-1" >
+          <ul className="py-3 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px] my-1" >
             <p>By category</p>
             {category.map((option, index) => {
               return (
@@ -96,7 +96,7 @@ const Sidebar: React.FC<props> = ({
               );
             })}
           </ul>
-          <ul className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px] my-1">
+          <ul className="py-3 px-4 text-lg font-medium text-[#ddd] font-sans big:text-4xl big:p-5 big:mt-[50px] my-1">
             <p className="text-[#ddd] font-sans font-semibold py-[10px] px-4 big:text-4xl big:p-5">By month</p>
             {month!.map((option, index) => {
               // console.log(option);
@@ -122,7 +122,7 @@ const Sidebar: React.FC<props> = ({
             className="py-1"
           />
           <p className="text-[#aaa] p-1 font-sans font-semibold  big:text-4xl big:p-5">{pro}</p>
-          <p className="py-5 px-4 text-lg font-medium text-[#ddd] font-sans sticky flex items-center cursor-pointer hover:text-[#bbb] hover:underline  big:text-4xl big:p-5" onClick={() => {
+          <p className="py-3 px-4 text-lg font-medium text-[#ddd] font-sans sticky flex items-center cursor-pointer hover:text-[#bbb] hover:underline  big:text-4xl big:p-5" onClick={() => {
             dispatch(allActions.setuser(''))
             logout(navigate)
           }}>
