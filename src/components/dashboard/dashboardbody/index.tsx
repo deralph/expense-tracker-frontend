@@ -133,7 +133,7 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
               onClick={() => dispatch(allActions.setSidebar(!sidebar))}
           />
         )}
-        <p className="text-[#f00] font-bold absolute top-1 right-1 text-lg border border-solid border-[#f00]" onClick={()=>deleteAccount()}>Delete Account</p>
+        <p className="text-[#f00] font-bold absolute top-1 right-1 text-lg border border-solid border-[#f00] p-2" onClick={()=>deleteAccount()}>Delete Account</p>
         <p className="text-center text-[30px] capitalize font-bold big:text-[50px] slg:mt-30 slg:text-xl sm:text-base mt-10">welcome {user}</p>
         <Quote
           quote={quotes[presentQuote].quote}
