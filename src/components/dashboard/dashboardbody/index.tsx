@@ -6,7 +6,7 @@ import { sets, Category_colors } from "../../../extras/functions";
 import useIcons from "../../../extras/useicon";
 import Quote from "./Quote";
 import Incategories from "../../categories/Incategories";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { reduceFunction } from "../../../extras/functions";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
@@ -22,7 +22,7 @@ interface props {
 const DashboardBody: React.FC<props> = ({ result, user }) => {
   const {sidebar} = useAppSelector(state => state.all)
   const dispatch = useAppDispatch()
-  // const { sidebar, setSidebar } = useGlobal();
+  const navigate = useNavigate()
   const [presentQuote, setPresentQuote] = useState(0);
 
   const randomNum = useCallback(() => {
@@ -111,8 +111,13 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
   const { userId } = useAppSelector(state => state.all)
 
   const deleteAccount=async()=>{
-   
-     await axios.delete(`auth/delete/${userId}`)
+  try {
+    await axios.delete(`auth/delete/${userId}`)
+    navigate('/signin')
+    dispatch(allActions.setuser(''))
+} catch (error) {
+    console.log(error)
+     }
   }
 
   return (
@@ -134,7 +139,7 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
           />
         )}
         <p className="text-[#f00] font-bold absolute top-1 right-1 text-lg border border-solid border-[#f00] p-2" onClick={()=>deleteAccount()}>Delete Account</p>
-        <p className="text-center text-[30px] capitalize font-bold big:text-[50px] slg:mt-30 slg:text-xl sm:text-base mt-10">welcome {user}</p>
+        <p className="text-center text-[30px] capitalize font-bold big:text-[50px] slg:mt-30 slg:text-xl sm:text-base mt-12">welcome {user}</p>
         <Quote
           quote={quotes[presentQuote].quote}
           author={quotes[presentQuote].author}
