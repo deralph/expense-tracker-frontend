@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState,useCallback } from 'react'
 import firebase from 'firebase/compat/app'
-import 'firebase/compat/firestore'
+import { collection, getDocs,getFirestore,addDoc } from 'firebase/firestore'
 import 'firebase/compat/auth'
 
 import { useCollectionData } from 'react-firebase-hooks/firestore'
@@ -15,18 +15,37 @@ const firebaseConfig = {
     messagingSenderId: "538771472808",
     appId: "1:538771472808:web:8146eced2bc3615476dd9d"
 };
-firebase.initializeApp(firebaseConfig)
+const app =firebase.initializeApp(firebaseConfig)
+firebase.auth()
+// const firestore = firebase.firestore()
 
-const auth = firebase.auth()
-const ChatTest = () => {
-    const firestore = firebase.firestore()
-
+const db = getFirestore(app)
+const ChatTest:React.FC = () => {
+const [msg,setMsg] = useState<any[]>([])
+    const fetchPost = useCallback(async () => {
+           
+        await getDocs(collection(db, "todos"))
+            .then((querySnapshot)=>{               
+                const newData = querySnapshot.docs
+                    .map((doc) => ({...doc.data(), id:doc.id }));
+                setMsg(newData);                
+                console.log(msg, newData);
+            })
+       
+    },[msg]
+    )
+    useEffect(()=>{
+        fetchPost();
+    }, [fetchPost])
     const { loading, user, userId } = useAppSelector(state => state.all)
-
-    const messagesRef = firestore.collection('messages')
-    const query: firebase.firestore.Query<firebase.firestore.DocumentData> | any = messagesRef.orderBy('createdAt').limit(25)
-    // const [messages]=useCollectionData(query,{idField:'id'})
-    const [messages] = useCollectionData(query)
+    
+    // const messagesRef = firestore.collection('messages')
+//     if(!messagesRef){
+//         console.log('error occured in message ref')
+//     }
+//     const query: firebase.firestore.Query<firebase.firestore.DocumentData> | any = messagesRef.orderBy('createdAt').limit(25)
+//     // const [messages]=useCollectionData(query,{idField:'id'})
+// const [messages] = useCollectionData(query)
 
     const [formValue, setformValue] = useState('')
 
@@ -35,18 +54,31 @@ const ChatTest = () => {
     const sendMessage = async (e: any) => {
         e.preventDefault()
 
-        await messagesRef.add({
-            text: formValue,
-            user,
-            userId,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        })
+        // await messagesRef.add({
+        //     text: formValue,
+        //     user,
+        //     userId,
+        //     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        // })
 
-        bottomRef.current!.scrollIntoView({ behavior: "smooth" });
-
-        setformValue('')
-
-    }
+        
+        e.preventDefault();  
+        
+        try {
+            const docRef = await addDoc(collection(db, "todos"), {
+                text: formValue,
+                    user,
+                    userId,
+                    createdAt: new Date(),   
+            });
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
+          }
+          
+          setformValue('')  
+            bottomRef.current!.scrollIntoView({ behavior: "smooth" });
+        }
 
     return (
         loading?<Loader/>:!user?<Navigate to='/signin'/>: (<div className="bg-[#9933ff39] px-[10%] sm:px-4 py-6  w-full h-[100vh] mx-auto flex flex-col justify-between">
@@ -55,21 +87,21 @@ const ChatTest = () => {
                     <h3 className="text-gray-800 font-semibold">{user}</h3>
                 </div>
                 <div className="flex flex-col space-y-2">
-                    {messages && messages.map((msg) => {
-                        const { text,
-                            user,
-                            createdAt } = msg
-                        return (<div key={createdAt} className={`${userId === msg.userId ? 'flex items-end justify-end mt-4 flex-col-reverse' : 'flex items-start'}`}>
-                            <div className="flex-shrink-0">
+                    {msg ? msg.map((msg) => {
+                        // const { text,
+                        //     user,
+                        //     createdAt } = msg
+                        return (<div key={ msg.createdAt} className={`flex mt-6 ${userId === msg.userId ? ' items-end flex-row-reverse' : ' items-start'}`}>
+                            <div className="flex-shrink-0 mx-4">
                                 <img src={userId === msg.userId ? "/images/User-avatar.png" : "/images/User-avatar1.png"} alt="Avatar 1" className="h-8 w-8 rounded-full border border-black" />
                             </div>
-                            <div className={` p-2 ${userId === msg.userId ? 'bg-[#96f] text-white rounded-[0_10px_0_10px]  mr-2' : 'bg-blue-100 text-gray-800 rounded-[10px_0_10px_0] ml-2'}`}>
+                            <div className={` p-2 min-w-[40%] ${userId === msg.userId ? 'bg-[#96f] text-white rounded-[0_10px_0_10px]  mr-2' : 'bg-blue-100 text-gray-800 rounded-[10px_0_10px_0] ml-2'}`}>
                                 <p className="text-xs">{user}</p>
-                                <p className="text-sm py-2">{text}</p>
-                                <p className="text-[8px]">{createdAt}</p>
+                                <p className="text-sm py-2">{msg.text}</p>
+                                <p className="text-[8px]">{msg.createdAt}</p>
                             </div>
                         </div>)
-                    })}
+                    }):'loading ...'}
 
                 </div>
             </div>

@@ -114,6 +114,7 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
   try {
     await axios.get("auth/logout")
     await axios.delete(`auth/delete/${userId}`)
+    dispatch(allActions.setuserID(''))
     dispatch(allActions.setuser(''))
     navigate('/signin')
 } catch (error) {
