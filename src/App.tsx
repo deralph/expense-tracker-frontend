@@ -1,4 +1,4 @@
-import {useEffect} from 'react'
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Error from "./pages/404";
 import Home from "./pages/Index";
@@ -13,17 +13,17 @@ import Dashboard from "./pages/dashboard";
 import Edit from "./pages/editSingleExpense";
 import { fetcher } from './store/slice.action';
 import { useAppDispatch } from './hooks';
-import ChatTest from './pages/ChatTest';
+import Chatroom from './pages/Chatroom';
 
 
 
 function App() {
-  
+
   const dispatch = useAppDispatch()
-  
+
   useEffect(() => {
     dispatch(fetcher());
-  }, [dispatch,fetcher]);
+  }, [dispatch, fetcher]);
 
   return (
     <BrowserRouter>
@@ -38,7 +38,7 @@ function App() {
         <Route path="/expense/:id" element={<SingleExpense />} />
         <Route path="/expense/:id/edit" element={<Edit />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/chatroom" element={<ChatTest />} />
+        <Route path="/chatroom" element={<Chatroom />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
