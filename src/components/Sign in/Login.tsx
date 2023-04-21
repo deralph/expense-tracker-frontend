@@ -4,7 +4,7 @@ import axios from "../../extras/axios";
 import { useAppDispatch } from "../../hooks";
 import { allActions } from "../../store/allSlice";
 
-const Login:React.FC = () => {
+const Login: React.FC = () => {
   const dispatch = useAppDispatch()
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
@@ -28,6 +28,7 @@ const Login:React.FC = () => {
       setMsg("Incorrect Email");
     } else if (email && pass) {
       try {
+        setloading(true);
         const userDetails = {
           email: email,
           password: pass,
@@ -70,11 +71,10 @@ const Login:React.FC = () => {
         </p>
         {msg && (
           <p
-            className={`text-sm p-2 text-center font-sans font-semibold big:text-[30px] big:p-[30px] ${
-              alert
+            className={`text-sm p-2 text-center font-sans font-semibold big:text-[30px] big:p-[30px] ${alert
                 ? "text-[#f00] border-2 border-solid border-[#f00]"
                 : "text-[#008000] border-2 border-solid border-[#008000]"
-            }`}
+              }`}
           >
             {msg}
           </p>
@@ -93,7 +93,7 @@ const Login:React.FC = () => {
           placeholder="Password"
           onChange={(e) => setPass(e.target.value)}
         />
-        <button className="bg-primary text-white py-4 px-10 text-[1.2rem] font-bold rounded-[30px] absolute -bottom-[20px] left-[50%] -translate-x-[50%] w-[200px] cursor-pointer disabled:bg-[#a091be] big:p-[30px_80px] big:text-[3rem] big:w-auto big:-bottom-[60px] big:rounded-[50px]" onClick={(e) => controlSubmit(e)} disabled={loading}>
+        <button className="bg-primary disabled:bg-[#a091be] text-white py-4 px-10 text-[1.2rem] font-bold rounded-[30px] absolute -bottom-[20px] left-[50%] -translate-x-[50%] w-[200px] cursor-pointer big:p-[30px_80px] big:text-[3rem] big:w-auto big:-bottom-[60px] big:rounded-[50px] " onClick={(e) => controlSubmit(e)} disabled={loading}>
           sign in
         </button>
       </form>

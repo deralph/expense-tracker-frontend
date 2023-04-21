@@ -2,12 +2,12 @@ import React from "react";
 import { RiEqualizerLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Logo from "../../home/logo";
-// import Logout from "../Logout";
 import { logout } from "../../../extras/functions";
 import { MdLogout } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../hooks";
 import { allActions } from "../../../store/allSlice";
+import { FaTimes } from "react-icons/fa";
 
 interface props {
   category?: string[]
@@ -36,11 +36,17 @@ const Sidebar: React.FC<props> = ({
     "Hi \n I am ________ \n I am writting to you in subject to the website https://expense-tracked.netlify.app \n I would love to seek financial advice towards ______, \n Thanks";
   return (
     // <aside className={`sidebar ${sidebar &&'show'}`}>
-    <aside className={`min-w-[250px] hide bg-[#93f] min-h-[100vh] h-auto p-5 fixed w-[20vw] left-0 top-0 block transition-all overflow-auto big:w-[25vw] md:-left-[120%] z-[100] overflow-y-scroll ${sidebar && 'md:left-0 transition-all'}`}>
+    <aside className={`min-w-[250px] hide bg-[#93f] min-h-[100vh] h-auto p-5 fixed w-[20vw] left-0 top-0 bottom-0 block transition-all big:w-[25vw] md:-left-[120%] z-[100] overflow-y-scroll ${sidebar && ' md:left-0 transition-all'}`}>
       {" "}
+      <FaTimes
+        className="hidden md:block transition-all text-[30px] left-5 p-[6px] sm:text-2xl sm:p-1 sm:left-[10px]"
+        style={{ color: "#fff" }}
+        onClick={() => dispatch(allActions.setSidebar(!sidebar))}
+      />
+
       {!category ? (
         <>
-          <ul className="mt-[50px]">
+          <ul className="mt-[50px] overflow-scroll">
             <div className="mb-[30px]">
               <Logo />
             </div>

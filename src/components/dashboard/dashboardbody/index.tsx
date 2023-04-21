@@ -8,11 +8,10 @@ import Quote from "./Quote";
 import Incategories from "../../categories/Incategories";
 import { Link, useNavigate } from "react-router-dom";
 import { reduceFunction } from "../../../extras/functions";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { FaTimes } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "../../../hooks";
 import { allActions } from "../../../store/allSlice";
 import axios from "../../../extras/axios";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 interface props {
   result: Array<any>;
@@ -20,7 +19,7 @@ interface props {
 }
 
 const DashboardBody: React.FC<props> = ({ result, user }) => {
-  const {sidebar} = useAppSelector(state => state.all)
+  const { sidebar } = useAppSelector(state => state.all)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const [presentQuote, setPresentQuote] = useState(0);
@@ -88,9 +87,8 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
       i === Cummulative_percent_Array.length - 1
         ? (f = `${Cummulative_percent_Array[i].tohundred}%`)
         : (f = `${Cummulative_percent_Array[i].tohundred}%,`);
-      const returned_Gradient_color = `${
-        Category_colors[Cummulative_percent_Array[i].type]
-      } ${j}% ${f}`;
+      const returned_Gradient_color = `${Category_colors[Cummulative_percent_Array[i].type]
+        } ${j}% ${f}`;
       Real_Gradient_color.push(returned_Gradient_color);
     }
   };
@@ -110,37 +108,28 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
   });
   const { userId } = useAppSelector(state => state.all)
 
-  const deleteAccount=async()=>{
-  try {
-    await axios.get("auth/logout")
-    await axios.delete(`auth/delete/${userId}`)
-    dispatch(allActions.setuserID(''))
-    dispatch(allActions.setuser(''))
-    navigate('/signin')
-} catch (error) {
-    console.log(error)
-     }
+  const deleteAccount = async () => {
+    try {
+      await axios.get("auth/logout")
+      await axios.delete(`auth/delete/${userId}`)
+      dispatch(allActions.setuserID(''))
+      dispatch(allActions.setuser(''))
+      navigate('/signin')
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
-    
+
     // <section className={sidebar ? "dashboard-body overflow" : "dashboard-body"}>
-    <section className={`sml:p-0 ml-[20vw] md:ml-0 mb-10 ${sidebar &&'overflow-hidden max-h-[100vh]'}`}>
+    <section className={`sml:p-0 ml-[20vw] md:ml-0 mb-10 ${sidebar && 'md:overflow-hidden md:max-h-[100vh]'}`}>
       <>
-        {" "}
-        {sidebar ? (
-          <FaTimes
-            className="hidden md:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px]"
-            style={{ color: "#fff" }}
-            onClick={() => dispatch(allActions.setSidebar(!sidebar))}
-            />
-            ) : (
-              <GiHamburgerMenu
-              className="hidden md:block fixed top-[10px] z-[110] transition-all text-[30px] left-5 p-[6px] sm:text-base sm:p-1 sm:left-[10px]"
-              onClick={() => dispatch(allActions.setSidebar(!sidebar))}
-          />
-        )}
-        <p className="text-[#f00] font-bold absolute top-1 right-1 text-sm border border-solid border-[#f00] p-2 sm:p-1 sm:text-xs" onClick={()=>deleteAccount()}>Delete Account</p>
+        <GiHamburgerMenu
+          className="hidden md:block bg-white fixed top-[10px] transition-all text-[30px] left-5 p-[6px] sm:text-2xl sm:p-1 sm:left-[10px]"
+          onClick={() => dispatch(allActions.setSidebar(!sidebar))}
+        />
+        <p className="text-[#f00] font-bold absolute top-[1%] right-[10%] text-sm border border-solid border-[#f00] p-2 sm:p-1 sm:text-xs" onClick={() => deleteAccount()}>Delete Account</p>
         <p className="text-center text-[30px] capitalize font-bold big:text-[50px] slg:mt-30 slg:text-xl sm:text-base mt-12">welcome {user}</p>
         <Quote
           quote={quotes[presentQuote].quote}
@@ -166,7 +155,7 @@ const DashboardBody: React.FC<props> = ({ result, user }) => {
           </div>
           <div className="line-place">
             <div
-              className={`h-3 w-[300px] rounded my-5 big:w-[22vw] big:rounded-[60px] big:h-[30px] sm:w-[200px]`} style={{background:`${Original_Gradient_color}`}}
+              className={`h-3 w-[300px] rounded my-5 big:w-[22vw] big:rounded-[60px] big:h-[30px] sm:w-[200px]`} style={{ background: `${Original_Gradient_color}` }}
             />
             {/* <div className="line-color"> */}
             <div className="block w-full">
