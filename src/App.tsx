@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetcher());
-  }, [dispatch, fetcher]);
+  }, [dispatch]);
 
   return (
     <BrowserRouter>

@@ -17,7 +17,7 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-const auth = firebase.auth();
+firebase.auth();
 const Oldchat = () => {
     const firestore = firebase.firestore();
 

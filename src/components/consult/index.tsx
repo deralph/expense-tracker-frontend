@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Back from "../../extras/Back";
 import axios from "../../extras/axios";
 
-const Consult:React.FC<{back?:boolean}> = ({ back }) => {
-  interface input{
-    name:string
-    email:string
+const Consult: React.FC<{ back?: boolean }> = ({ back }) => {
+  interface input {
+    name: string
+    email: string
   }
-  const [inputs,setInputs]= useState<input>({
-    name:'',email:''
+  const [inputs, setInputs] = useState<input>({
+    name: '', email: ''
   });
   const [message, setMessage] = useState("");
   const [loading, setloading] = useState(false);
-  const sendEmail = async(e:React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const regex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -24,17 +23,19 @@ const Consult:React.FC<{back?:boolean}> = ({ back }) => {
       setMessage("incorrect email");
     } else if (inputs.name && inputs.email) {
       try {
-        
-        const {data}= await axios.post('sendmail',inputs)
-        if(data){
+        setloading(true)
+        const { data } = await axios.post('sendmail', inputs)
+        if (data) {
           setMessage('maill delivered sucessully')
         }
+        setloading(false)
       } catch (error) {
         console.log(error)
         setMessage('an error occured try again later')
         setInputs({
-          name:'',email:''
+          name: '', email: ''
         })
+        setloading(false)
       }
     }
   };
@@ -55,7 +56,7 @@ const Consult:React.FC<{back?:boolean}> = ({ back }) => {
           <form
             action=""
             className="big:h-auto big:w-auto md:w-full bg-[#eee] p-7 w-[300px] relative"
-            onSubmit={(e)=>sendEmail(e)}
+            onSubmit={(e) => sendEmail(e)}
             name="form"
           >
             {message && <p className="text-center text-green-600 font-semibold">{message}</p>}
@@ -65,15 +66,15 @@ const Consult:React.FC<{back?:boolean}> = ({ back }) => {
               id="name"
               value={inputs.name}
               placeholder="Your Name"
-              onChange={(e) => setInputs({...inputs,name:e.target.value})}
+              onChange={(e) => setInputs({ ...inputs, name: e.target.value })}
               className="h-auto bg-[#ddd] w-full p-2 big:h-10 big:p-4 big:w-[500px] big:text-3xl mt-7 mb-5"
-              />
+            />
             <input
               type="email"
               name="email"
               id="email"
               value={inputs.email}
-              onChange={(e) => setInputs({...inputs,email:e.target.value})}
+              onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
               placeholder="Your Email"
               className=" bg-[#ddd] w-full p-2 big:h-10 big:p-4 big:w-[500px] big:text-3xl mt-3 mb-5"
             />
